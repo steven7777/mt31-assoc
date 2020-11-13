@@ -1,0 +1,431 @@
+/* MENU */
+.navbar {
+	position: absolute;
+	width: 100%;
+	background-color: #FFFFFF;
+	background: rgba(255, 255, 255, 1);
+	margin: 0;
+	padding: 0;
+	border: none;
+	box-shadow: 0px 0px 4px rgba(0, 0, 0, 0.3);
+	border-radius: 0;
+	z-index: 2;
+	transition: all 0.4s ease;
+}
+
+.navbar:hover {
+	background-color: #FFFFFF;
+	background: rgba(255, 255, 255, 1);
+}
+
+.navbar:hover .navbar-collapse ul.navbar-nav li a {
+	color: #555555;
+	text-shadow: none;
+}
+
+	/* Logo */
+.navbar .navbar-header {
+	float: none;
+	display: block;
+	height: 150px;
+	margin: 0;
+	padding: 20px 0;
+}
+
+.navbar .navbar-header .navbar-brand {
+	width: 100%;
+	height: 100%;
+	margin: 0;
+	padding: 0;
+}
+
+.navbar .navbar-header .navbar-brand img.logo {
+	height: 100%;
+	margin: 0 auto;
+}	/* Logo */
+
+	/* Menu de navigation */
+.navbar .navbar-collapse {
+	display: block;
+	width: 100%;
+	padding: 0;
+}
+
+.navbar .navbar-collapse ul.navbar-nav li {
+	height: 40px;
+	float: none;
+	border-bottom: 5px solid transparent;
+	padding: 5px 10px;
+	list-style: none;
+	transition: all 0.4s ease;
+}
+
+.navbar .navbar-collapse ul.navbar-nav li a {
+	padding: 20px 10px;
+	font-size: 1.1em;
+	color: #555555;
+	text-align: center;
+	text-decoration: none;
+	text-transform: uppercase;
+}
+
+.navbar .navbar-collapse ul.navbar-nav li:hover a {
+	text-decoration: none;
+}
+
+.navbar .navbar-collapse ul.navbar-nav li:focus {
+	background: transparent;
+}
+
+	/* Menu de navigation */
+
+	/* Menu après scroll */
+	.positionFixed {
+		position: fixed;
+	}
+
+	.newmenu {
+		background-color: #FFFFFF;
+		background: rgba(255, 255, 255, 0.95);
+		padding: 0px 100px;
+	}
+
+		/* Logo */
+	.newmenu .navbar-header {
+		display: inline-block;
+		height: 80px;
+		padding: 0;
+	}
+
+	.newmenu .navbar-header .navbar-brand {
+		padding: 15px;
+	}
+
+	.newmenu .navbar-header .navbar-brand img.logo {
+	}	/* Logo */
+
+		/* Menu de navigation */
+	.newmenu .navbar-collapse {
+		float: right;
+		display: inline-block;
+		width: 1080px;
+		vertical-align: bottom;
+	}
+
+	.newmenu .navbar-collapse ul.navbar-nav li {
+		height: 80px;
+		text-align: bottom;
+	}
+
+	.newmenu .navbar-collapse ul.navbar-nav li a {
+		height: 80px;
+		line-height: 80px;
+		padding: 20px 10px;
+		text-shadow: none;
+		color: #353535;
+		vertical-align: bottom;
+	}
+
+	.newmenu .navbar-collapse ul.navbar-nav li ul.dropdown-menu {
+		position: relative;
+		margin-top: 40px;
+		padding: 0;
+	}
+
+.navbar .navbar-collapse ul.navbar-nav li ul.dropdown-menu {
+	position: relative;
+	top: 40px;
+	padding: 0;
+}
+
+.navbar .navbar-collapse ul.navbar-nav li ul.dropdown-menu li {
+	display: block;
+	position: relative;
+	height: 60px;
+	margin: 0;
+	padding: 0px;
+	border: none;
+}
+
+.navbar .navbar-collapse ul.navbar-nav li ul.dropdown-menu li a {
+	padding: 10px;
+	height: 100%;
+	line-height: 40px;
+	text-align: left;
+}
+.dropdown-menu > li > a:hover,
+.dropdown-menu > li > a:focus {
+}
+.navbar .navbar-nav > .open > a,
+.navbar .navbar-nav > .open > a:hover,
+.navbar .navbar-nav > .open > a:focus {
+  color: #555;
+  background-color: transparent;
+}
+
+@media screen and (min-width: 1280px) and (max-width: 1445px) {
+
+	.newmenu {
+		padding: 0px 20px;
+	}
+
+	.navbar .navbar-collapse ul.navbar-nav li a,
+	.newmenu .navbar-collapse ul.navbar-nav li a {
+		font-size: 1em;
+	}
+
+}
+
+@media screen and (min-width: 1032px) and (max-width: 1280px) {
+
+	.newmenu {
+		padding: 0px 20px;
+	}
+
+	.navbar .navbar-collapse ul.navbar-nav li a,
+	.newmenu .navbar-collapse ul.navbar-nav li a {
+		font-size: 1em;
+	}
+	.newmenu .navbar-collapse {
+		float: right;
+		width: auto;
+	}
+
+	.navbar .navbar-collapse ul.navbar-nav li,
+	.navbar .navbar-collapse ul.navbar-nav li a {
+		padding: 5px;
+	}
+
+}
+
+@media screen and (min-width: 768px) and (max-width: 1032px) {
+
+	.navbar .navbar-header {
+		height: 80px;
+	}
+
+	.navbar .navbar-header .navbar-brand {
+
+	}
+	.navbar .navbar-header .navbar-brand img.logo {
+
+	}
+
+	.navbar .navbar-collapse ul.navbar-nav li {
+		height: 30px;
+		padding: 0px;
+	}
+
+	.navbar .navbar-collapse ul.navbar-nav li a {
+		padding: 10px;
+		font-size: 0.8em;
+	}
+
+	.navbar .navbar-collapse ul.navbar-nav li ul.dropdown-menu {
+		top: 30px;
+	}
+
+	.newmenu {
+		padding: 0px;
+	}
+
+	.newmenu .navbar-header {
+		height: 40px;
+	}
+
+	.newmenu .navbar-header .navbar-brand {
+		padding: 8px 50px 2px 5px;
+	}
+
+	.newmenu .navbar-header .navbar-brand img.logo {
+	}	/* Logo */
+
+	.newmenu .navbar-collapse {
+		width: auto;
+		padding: 0;
+	}
+
+	.newmenu .navbar-collapse ul.navbar-nav {
+		height: 45px;
+	}
+
+	.newmenu .navbar-collapse ul.navbar-nav li {
+		height: 45px;
+	}
+
+	.newmenu .navbar-collapse ul.navbar-nav li a {
+		height: 45px;
+		line-height: 45px;
+		padding: 10px 5px;
+	}
+
+	.newmenu .navbar-collapse ul.navbar-nav li ul.dropdown-menu {
+		margin-top: 15px;
+	}
+
+}
+
+@media screen and (min-width: 768px) {
+
+	.navbar .navbar-collapse ul.navbar-nav {
+		display: block;
+		float: none;
+		margin: 0 auto;
+		padding-top: 5px;
+		text-align: center;
+	}
+
+	.navbar .navbar-collapse ul.navbar-nav li {
+		display: inline-block;
+	}
+
+	.navbar ul.navbar-nav li.dropdown ul {
+		display: none;
+	}
+
+	.navbar ul.navbar-nav li.dropdown:hover ul {
+		display: block;
+	}
+
+	.navbar .navbar-collapse ul.navbar-nav li:hover ul.dropdown-menu {
+		display: block;
+	}
+
+	.navbar .navbar-collapse ul.navbar-nav li:hover {
+		border-bottom: 5px solid #34770D;
+	}
+
+}
+
+@media screen and (max-width: 767px) {
+
+	.navbar, .newmenu {
+		position: fixed;
+		height: 40px;
+		padding: 0 10px;
+	}
+
+	.newmenu {
+		background: rgba(255, 255, 255, 1);
+	}
+
+	.navbar .navbar-header, .newmenu .navbar-header {
+		float: none;
+		display: block;
+		height: 150px;
+		margin: 0;
+		padding: 20px 0;
+	}
+
+	.navbar .navbar-header .navbar-brand {
+		position: absolute;
+		top: 5px;
+		width: 100px;
+		height: 40px;
+		margin: 0;
+		padding: 5px;
+	}
+
+	.navbar .navbar-header .navbar-brand img.logo {
+		display: block;
+	}
+
+	.navbar .navbar-header,
+	.newmenu .navbar-header {
+		height: 40px;
+		border: none;
+	}
+
+	.navbar .navbar-header .navbar-toggle,
+	.newmenu .navbar-header .navbar-toggle {
+		position: relative;
+		top: 0;
+		margin-top: -15px;
+	}
+
+	.navbar .navbar-collapse.collapse,
+	.newmenu .navbar-collapse.collapse {
+		position: absolute;
+		right: 0;
+		width: 80%;
+		height: auto;
+		border: 1px solid transparent;
+		background: rgba(255, 255, 255, 1);
+		box-shadow: inset 0 1px 0 rgba(255,255,255,0.1);
+	}
+	.navbar .navbar-collapse.collapse.in,
+	.newmenu .navbar-collapse.in {
+		position: relative;
+		display: block!important;
+	}
+	.collapsing {
+		overflow: hidden!important;
+	}
+
+	.newmenu ul.navbar-nav li.dropdown:target ul,
+	.navbar ul.navbar-nav li.dropdown:target ul {
+		top: 0;
+		display: block;
+		position: relative;
+	}
+
+	.navbar .navbar-collapse ul.navbar-nav,
+	.newmenu .navbar-collapse ul.navbar-nav {
+		position: relative;
+		margin-left: 0px;
+		width: 100%;
+		height: auto;
+		float: none!important;
+	}
+
+	.navbar ul.navbar-nav li,
+	.newmenu ul.navbar-nav li {
+		position: relative;
+	}
+
+	.newmenu .navbar-collapse ul.navbar-nav li,
+	.navbar .navbar-collapse ul.navbar-nav li {
+		position: relative;
+		width: 100%;
+		border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+		text-align: top;
+		vertical-align: top;
+		height: auto;
+		text-align: top;
+		vertical-align: top;
+		padding: 0px;
+	}
+
+	.newmenu .navbar-collapse ul.navbar-nav li a,
+	.navbar .navbar-collapse ul.navbar-nav li a {
+		position: relative;
+		height: 40px;
+		line-height: 40px;
+		padding: 0px 10px 15px 10px;
+		vertical-align: top;
+	}
+
+	.newmenu .navbar-collapse ul.navbar-nav li ul.dropdown-menu,
+	.navbar .navbar-collapse ul.navbar-nav li ul.dropdown-menu {
+		position: relative;
+		top: 0px;
+		margin-top: 0px;
+		background-color: #F7F7F7;
+	}
+
+	.newmenu .navbar-collapse ul.navbar-nav li ul.dropdown-menu li,
+	.navbar .navbar-collapse ul.navbar-nav li ul.dropdown-menu li {
+		position: relative;
+		width: 200px;
+		height: 40px;
+		line-height: 40px;
+		padding: 0px 10px 15px 10px;
+	}
+
+	.newmenu .navbar-collapse ul.navbar-nav li ul.dropdown-menu li a,
+	.navbar .navbar-collapse ul.navbar-nav li ul.dropdown-menu li a {
+		position: relative;
+		padding: 0px 10px 15px 10px;
+	}
+
+}

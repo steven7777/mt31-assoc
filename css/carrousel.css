@@ -1,0 +1,71 @@
+/* STYLE CAROUSEL */
+#carousel-example-generic {
+	top: 0;
+	font-family: 'Glyphicons Halflings';
+	height: 750px;
+	overflow: hidden;
+	z-index: 1;
+}
+#carousel-example-generic .carousel-control {
+	height: 750px;
+}
+#carousel-example-generic .carousel-inner .item img {
+	min-width: 100%;
+	min-height: 750px;
+}
+
+.bottom {
+	position: absolute;
+	bottom: 60px;
+	display: block;
+	width: 100%;
+	text-align: center;
+	transition: all 0.4s ease;
+	cursor: pointer;
+}
+.bottom > a {
+	display: block;
+	margin: auto;
+	width: 70px;
+	height: 70px;
+	border: 5px solid rgba(255, 255, 255, 0.5);
+	border-radius: 50px;
+}
+.bottom > a:hover {
+	background: rgba(0, 0, 0, 0.2);
+}
+.bottom .togo {
+	padding: 10px;
+	text-shadow: 0px 0px 3px #000000;
+	z-index: 999;
+	font-size: 3em;
+	color: #FFFFFF;
+}
+
+@media screen and (min-width: 768px) and (max-width: 1032px) {
+
+	#carousel-example-generic {
+		height: 350px;
+	}
+	#carousel-example-generic .carousel-control {
+		height: 350px;
+	}
+	#carousel-example-generic .carousel-inner .item img {
+		height: 350px;
+	}
+
+}
+
+@media screen and (max-width: 767px) {
+
+	#carousel-example-generic {
+		height: 350px;
+	}
+	#carousel-example-generic .carousel-control {
+		height: 350px;
+	}
+	#carousel-example-generic .carousel-inner .item img {
+		height: 350px;
+	}
+
+}

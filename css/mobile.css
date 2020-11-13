@@ -1,0 +1,385 @@
+@media screen and (max-width: 767px) {
+
+	body {
+		min-height: auto;
+	}
+
+	.bottom {
+		display: none;
+	}
+
+	.home_cadre h2,
+	.titre_h2 {
+		font-size: 22px;
+	}
+
+	.titre_h2:before {
+		display: none;
+	}
+	.titre_h2:after {
+		content: '';
+		position: relative;
+		display: block;
+		top: 10px;
+		width: 100px;
+		height: 5px;
+		margin: auto;
+		background: rgba(0, 0, 0, 0.2);
+	}
+
+	.home_main_tendue_31 {
+		margin-top: 0px;
+	}
+
+	.home_cadre .filtre {
+		padding: 10px 20px 30px 20px;
+		height: auto;
+	}
+
+	.home_cadre article.home_txt {
+		display: block;
+		width: 100%;
+		margin-bottom: 30px;
+		padding: 0;
+	}
+
+	.home_cadre article.home_txt p {
+		text-align: justify;
+		font-size: 1em;
+	}
+
+	.home_cadre .acces_page {
+		margin: auto;
+		padding: 10px 20px;
+	}
+
+	.home_cadre img {
+		display: block;
+		float: none;
+		width: 80%;
+		height: auto;
+		margin: 10px auto;
+	}
+
+	.present {
+		display: block;
+	}
+
+	.div-present {
+		width: 100%;
+		height: auto;
+		margin-top: 10px;
+		padding-bottom: 20px;
+	}
+
+	.div-present > h3 {
+		text-align: center;
+	}
+
+	.home_mot_president h2 {
+		display: block;
+		height: auto;
+		line-height: normal;
+		margin: auto;
+		padding-left: 10px;
+		text-shadow: 0px 0px 1px #151515;
+		border-left: none;
+		vertical-align: top;
+		font-size: 22px;
+	}
+
+	.home_mot_president h2:after {
+		content: '';
+		position: relative;
+		display: block;
+		top: 10px;
+		width: 100px;
+		height: 5px;
+		margin: auto;
+		background: rgba(255, 255, 255, 0.2);
+	}
+
+	.home_mot_president .photo-president {
+		display: none;
+	}
+
+	.home_mot_president .photo-president-2 {
+		display: block;
+		width: auto;
+		height: auto;
+	}
+
+	.home_galerie_photo .thumbs_xy {
+		display: block;
+		width: 100%;
+		vertical-align: top;
+		text-align: center;
+		padding: 10px 5px 30px 5px;
+		font-size: 1em;
+	}
+	.home_galerie_photo .thumbs_xy div.thumbs {
+		position: relative;
+		display: inline-block;
+		width: 40%;
+		height: 150px;
+	}
+
+	.home_galerie_photo .thumbs_xy div.thumbs .acces_galerie {
+		font-size: 1em;
+	}
+
+	.home_galerie_photo div.thumbs {
+		margin: 5px;
+	}
+
+	.home_galerie_photo div.thumbs .acces_galerie p.caption {
+	padding: 5px;
+		font-size: 1em;
+	}
+
+	.home_activite .div-stats {
+		display: block;
+		width: 100%;
+		margin: 40px auto;
+		vertical-align: top;
+	}
+
+	.home_contact {
+		height: auto;
+	}
+
+	.home_contact .map,
+	.home_contact address {
+		display: block;
+		width: 100%;
+		height: auto;
+		margin: 10px auto;
+		font-size: 1em;
+	}
+
+	.home_contact iframe {
+		width: 100%;
+		height: auto;
+	}
+
+	.mt_cadre .filtre {
+		padding: 10px 20px 20px 20px;
+		height: auto;
+	}
+
+	.mt31_cadres p,
+	.mt31_cadres ul li,
+	.mt31_cadres blockquote {
+		font-size: 1em;
+	}
+
+	.mt31_cadres h2 {
+		font-size: 1.3em;
+		padding-bottom: 10px;
+		border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+	}
+	.mt31_cadres h2:before,
+	.mt31_cadres h2:after {
+		display: none;
+	}
+
+	.titre_h1 .filtre {
+		padding: 30px 20px;
+	}
+
+	.titre_h1 h1 {
+		font-size: 1.5em;
+	}
+
+	.fil_ariane {
+		font-size: 1em;
+	}
+
+	.mt_actionsenpartenariat {
+		min-height: 0;
+		height: auto;
+	}
+	.mt_rapports ul.pdf,
+	.mt_revue ul.pdf,
+	.mt_rapports ul.article,
+	.mt_revue ul.article,
+	.mt_rapports ul.jpg,
+	.mt_revue ul.jpg {
+		display: block;
+		width: 100%;
+	}
+
+	.mt_rapports ul a span {
+		font-size: 4em;
+	}
+	.mt_revue ul a span {
+		font-size: 2em;
+	}
+
+	.mt_rapports ul a li {
+		margin: 0;
+		font-size: 0.9em;
+	}
+	.mt_revue ul a li {
+		margin: 0;
+		font-size: 0.9em;
+	}
+	.mt_revue ul p.date {
+		color: #7A7A7A;
+		font-size: 0.9em;
+	}
+
+	.mt_apropos .map {
+		display: block;
+		width: 100%;
+		margin: 10px 0;
+	}
+	.mt_apropos .map iframe {
+		width: 100%;
+		height: auto;
+	}
+
+	.mt_apropos address {
+		display: block;
+		width: 100%;
+		margin: 10px 0;
+	}
+	.mt_apropos .thumbs_xy {
+		display: block;
+		width: 100%;
+		margin: 20px 0;
+	}
+	.mt_apropos .thumbs_xy .thumbs {
+		display: block;
+		width: 100%;
+		margin: auto;
+	}
+
+	.mt_partenaires {
+		width: 100%;
+		min-height: auto;
+		text-align: center;
+		padding: 0 0 30px 0;
+	}
+
+	.mt_partenaires .filtre {
+		width: 100%;
+		min-height: auto;
+		text-align: center;
+		padding: 0 0 30px 0;
+	}
+	.mt_partenaires div.partner {
+		display: block;
+		width: 100%;
+		margin: 0;
+		padding: 0px 20px;
+	}
+	.mt_partenaires div.partner img {
+		display: block;
+		max-width: 100%;
+		margin: auto;
+	}
+
+	.mt_noustrouver {
+		width: 100%;
+		height: auto;
+		text-align: center;
+	}
+
+	.mt_noustrouver .map {
+		display: block;
+	}
+
+	.mt_noustrouver iframe {
+		width: 100%;
+	}
+
+	.mt_noustrouver .contentother {
+		display: block;
+		margin-left: 0;
+		vertical-align: top;
+	}
+
+	.mt_noustrouver address {
+		display: block;
+		width: 100%;
+		padding: 10px 30px 10px 30px;
+		font-size: 1em;
+	}
+
+	.mt_noustrouver div.reseauxsociaux {
+		display: block;
+		width: 100%;
+		padding: 10px 30px 10px 30px;
+	}
+
+	.mt_audio div.audio {
+		display: block;
+		width: 100%;
+		margin: 20px auto;
+	}
+
+	.mt_audio div.audio audio {
+		display: block;
+		width: 100%;
+	}
+
+	.mt_galerie {
+		width: 100%;
+	}
+
+	#viewer {
+		position: relative;
+		top: 50px;
+		display: block;
+		width: 100%;
+		height: auto;
+		margin-left: 0;
+		margin: auto;
+		text-align: center;
+	}
+	#viewer img {
+		width: 100%;
+	}
+
+	video {
+		width: 100%;
+	}
+
+	.mt_photos .filtre {
+		padding: 10px 0 30px 0;
+	}
+
+	.mt_photos .filtre h2 {
+		padding: 0px 0px;
+	}
+
+	.active_thumbs {
+		width: 200px;
+		height: 150px;
+	}
+
+	.lecture_video video {
+		height: auto;
+	}
+
+	.galerie_photo {
+		width: 100%;
+		min-height: 280px;
+	}
+
+	.galerie_photo .vue {
+		display: block;
+		width: 100%;
+		height: 250px;
+	}
+
+	.galerie_photo .liste_images {
+		height: 70px;
+	}
+
+	.galerie_photo .liste_images li {
+		width: 70px;
+	}
+	
+}

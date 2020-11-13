@@ -1,0 +1,38 @@
+@media screen and (min-width: 1280px) and (max-width: 1445px) {
+
+	.home_cadre .filtre {
+		padding: 50px 170px;
+	}
+	.home_galerie_photo .thumbs_hori div.thumbs .acces_galerie {
+		font-size: 1.2em;
+	}
+	.home_galerie_photo .thumbs_vert div.thumbs .acces_galerie {
+		font-size: 0.8em;
+	}
+
+	.mt_cadre .filtre {
+		padding: 30px 200px 20px 200px;
+	}
+	
+	.mt_revue .filtre {
+		padding: 30px 110px 20px 110px;
+	}
+
+	.titre_h1 .filtre {
+		padding: 30px 300px;
+	}
+
+	.mt_epicerie h2:before,
+	.mt_epicerie h2:after {
+		width: 150px;
+	}
+
+	.mt_photos .filtre {
+		padding: 30px 50px;
+	}
+
+	.mt_photos .filtre h2 {
+		padding: 0px 300px;
+	}
+
+}

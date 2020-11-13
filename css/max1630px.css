@@ -1,0 +1,32 @@
+@media screen and (min-width: 1445px) and (max-width: 1630px) {
+
+	.home_cadre .filtre {
+		padding: 50px 250px;
+	}
+
+	.mt_cadre .filtre {
+		padding: 30px 300px 20px 300px;
+	}
+	
+	.mt_revue .filtre {
+		padding: 30px 190px 20px 190px;
+	}
+
+	.titre_h1 .filtre {
+		padding: 30px 300px;
+	}
+
+	.mt_epicerie h2:before,
+	.mt_epicerie h2:after {
+		width: 190px;
+	}
+
+	.mt_photos .filtre {
+		padding: 30px 50px;
+	}
+
+	.mt_photos .filtre h2 {
+		padding: 0px 350px;
+	}
+
+}

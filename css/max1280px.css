@@ -1,0 +1,57 @@
+@media screen and (min-width: 1024px) and (max-width: 1280px) {
+
+	.home_cadre article.home_txt p {
+		font-size: 1.1em;
+	}
+
+	.home_cadre .filtre {
+		padding: 30px 100px;
+	}
+	.home_main_tendue_31 .filtre {
+		padding: 30px 50px;
+	}
+	.home_galerie_photo .thumbs_hori div.thumbs .acces_galerie {
+		font-size: 1.1em;
+	}
+	.home_galerie_photo .thumbs_vert div.thumbs .acces_galerie {
+		font-size: 0.8em;
+	}
+
+	.mt31_cadres p,
+	.mt31_cadres ul li {
+		font-size: 1.1em;
+	}
+
+	.mt_cadre .filtre {
+		padding: 30px 100px 20px 100px;
+	}
+	
+	.mt_revue .filtre {
+		padding: 30px 50px 20px 50px;
+	}
+
+	.titre_h1 .filtre {
+		padding: 30px 100px;
+	}
+
+	.mt31_cadres h2:before {
+		width: 200px;
+	}
+	.mt31_cadres h2:after {
+		width: 200px;
+	}
+
+	.mt_epicerie h2:before,
+	.mt_epicerie h2:after {
+		width: 100px;
+	}
+
+	.mt_photos .filtre {
+		padding: 30px 40px;
+	}
+
+	.mt_photos .filtre h2 {
+		padding: 0px 100px;
+	}
+
+}

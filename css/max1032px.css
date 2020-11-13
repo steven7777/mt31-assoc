@@ -1,0 +1,166 @@
+@media screen and (min-width: 768px) and (max-width: 1032px) {
+
+	.bottom {
+		display: none;
+	}
+
+	.home_cadre article.home_txt p {
+		font-size: 1em;
+	}
+
+	.home_cadre .filtre {
+		padding: 30px 50px;
+	}
+
+	.present {
+		display: block;
+	}
+
+	.div-present {
+		width: 100%;
+		height: auto;
+		margin-top: 10px;
+		padding-bottom: 20px;
+	}
+
+	.div-present > h3 {
+		text-align: center;
+	}
+
+	.home_mot_president h2 {
+		font-size: 45px;
+	}
+
+	.home_galerie_photo .thumbs_hori div.thumbs .acces_galerie {
+		font-size: 1em;
+	}
+	.home_galerie_photo .thumbs_vert div.thumbs .acces_galerie {
+		font-size: 0.8em;
+	}
+
+	.home_contact {
+		height: auto;
+	}
+
+	.home_contact .map,
+	.home_contact address {
+		display: block;
+		width: 100%;
+		height: auto;
+		margin: 10px auto;
+		font-size: 1em;
+	}
+
+	.home_contact iframe {
+		width: 100%;
+		height: auto;
+	}
+
+	.mt31_cadres h2:before {
+		width: 100px;
+	}
+	.mt31_cadres h2:after {
+		width: 100px;
+	}
+
+	.mt_epicerie h2:before,
+	.mt_epicerie h2:after {
+		width: 100px;
+	}
+
+	.mt31_cadres p,
+	.mt31_cadres ul li {
+		font-size: 1em;
+	}
+
+	.mt_actionsenpartenariat {
+		min-height: 0;
+		height: auto;
+	}
+
+	.mt_cadre .filtre {
+		padding: 30px 50px 20px 50px;
+	}
+
+	.mt_noustrouver {
+		width: 100%;
+		height: auto;
+		text-align: center;
+	}
+
+	.titre_h1 .filtre {
+		padding: 30px 100px;
+	}
+
+	.home_galerie_photo .thumbs_xy {
+		display: block;
+		width: 100%;
+		vertical-align: top;
+		text-align: center;
+		padding: 10px 5px 30px 5px;
+		font-size: 1em;
+	}
+	.home_galerie_photo .thumbs_xy div.thumbs {
+		position: relative;
+		display: inline-block;
+		width: 35%;
+		height: 150px;
+	}
+
+	.home_galerie_photo .thumbs_xy div.thumbs .acces_galerie {
+		font-size: 1em;
+	}
+
+	.home_galerie_photo div.thumbs {
+		margin: 5px;
+	}
+
+	.mt_audio div.audio {
+		display: block;
+		width: 500px;
+		margin: 20px auto;
+	}
+
+	.mt_audio div.audio audio {
+		display: block;
+		width: 100%;
+	}
+
+	.mt_apropos .map {
+		display: block;
+		width: 100%;
+		margin: 10px 0;
+	}
+	.mt_apropos .map iframe {
+		width: 100%;
+		height: auto;
+	}
+
+	.mt_apropos address {
+		display: block;
+		width: 100%;
+		margin: 10px 0;
+	}
+	.mt_apropos .thumbs_xy {
+		display: block;
+		width: 100%;
+		margin: 20px 0;
+	}
+	.mt_apropos .thumbs_xy .thumbs {
+		display: block;
+		margin: auto;
+	}
+
+	.mt_photos .filtre {
+		padding: 30px 40px;
+	}
+
+	.mt_photos .filtre h2 {
+		padding: 0px 100px;
+	}
+
+	.lecture_video video {
+		height: auto;
+	}
+
+}

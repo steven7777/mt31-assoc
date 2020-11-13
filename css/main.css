@@ -1,0 +1,409 @@
+
+#don {
+	position: fixed;
+	bottom: 170px;
+	right: 0px;
+	background: rgba(255, 255, 255, 0.9);
+	font-size: 2em;
+}
+#don span {
+	padding: 20px;
+}
+
+/* Main tendue 31 > L'association */
+.mt31_cadres {
+	display: block;
+}
+
+.mt31_cadres h2 {
+	padding-bottom: 40px;
+	text-align: center;
+}
+.mt31_cadres h2:before {
+	content: '';
+	position: relative;
+	display: block;
+	width: 250px;
+	border: 1px solid #C3C3C3;
+	top: 20px;
+	float: left;
+}
+.mt31_cadres h2:after {
+	content: '';
+	position: relative;
+	display: block;
+	width: 250px;
+	border: 1px solid #C3C3C3;
+	top: 20px;
+	float: right;
+}
+
+.mt_epicerie h2:before,
+.mt_epicerie h2:after {
+	width: 180px;
+}
+
+.mt_cadre .filtre {
+	padding: 30px 400px 20px 400px;
+}
+.mt_revue .filtre {
+	padding: 30px 280px 20px 280px;
+}
+
+.titre_h1 {
+	position: relative;
+	/*background: url('../media/mt001.png') 100%;*/
+	background: url('../media/uni2_ban.jpg') 100%;
+	background-size: cover;
+	text-align: center;
+	text-transform: uppercase;
+	color: #000000;
+}
+
+.titre_h1 .filtre {
+	padding: 250px 400px 30px 400px;
+	background: rgba(255, 255, 255, 0.4);
+}
+
+.fil_ariane {
+	text-transform: none;
+	font-size: 1.2em;
+}
+.fil_ariane li {
+	display: inline-block;
+	list-style: none;
+}
+.fil_ariane li a {
+	text-decoration: none;
+	text-shadow: 0px 0px 2px #FFFFFF;
+	color: #34770D;
+}
+.fil_ariane li span {
+	color: #7A7A7A;
+	padding: 0 10px;
+}
+.fil_ariane li.active {
+	color: #FFFFFF;
+	text-shadow: 0px 0px 2px #000000;
+}
+
+.mt31_cadres p,
+.mt31_cadres ul li {
+	font-size: 1.2em;
+	text-align: justify;
+}
+
+.mt31_cadres ul li {
+	margin-left: 20px;
+}
+.mt_benevoles {
+	padding-bottom: 50px;
+}
+.mt_actionsenpartenariat {
+	min-height: 620px;
+}
+
+/* Main tendue 31 > Nos rapports d'activité */
+.mt_rapports {
+	min-height: 620px;
+}
+
+.mt_rapports p.info {
+	font-style: italic;
+	color: #B5210E;
+}
+
+.mt_rapports ul li {
+	margin: 10px;
+	list-style: none;
+}
+
+.mt_rapports ul li span.download {
+	margin-left: 10px;
+	font-size: 2em;
+	color: #B5210E;
+}
+.mt_apropos {
+	text-align: center;
+}
+.mt_apropos .map {
+	display: inline-block;
+}
+.mt_apropos .map iframe {
+	width: 250px;
+	height: 250px;
+}
+.mt_apropos address {
+	display: inline-block;
+	margin-left: 10px;
+	padding: 10px 15px 30px 15px;
+	background: #F2F2F2;
+	vertical-align: top;
+	text-align: left;
+	font-size: 1em;
+}
+.mt_apropos .thumbs_xy {
+	display: inline-block;
+	margin-left: 10px;
+	padding: 10px 20px 30px 20px;
+	background: #F2F2F2;
+	vertical-align: top;
+	font-size: 1.2em;
+}
+.mt_apropos .thumbs_xy strong {
+	display: block;
+}
+.mt_apropos .thumbs_xy .thumbs {
+	width: 250px;
+	height: 160px;
+	vertical-align: top;
+	box-shadow: 0px 0px 1px #151515;
+	background: url('../media/albumthumb_epicerie_solidaire.jpg') no-repeat 100% 100%;
+	background-size: cover;
+}
+.mt_apropos .thumbs_xy .thumbs_r {
+	background: url('../media/albumthumb_distribution_repas.jpg') no-repeat 100% 100%;
+	background-size: cover;
+}
+.mt_apropos .thumbs_xy .thumbs .acces_galerie {
+	display: block;
+	width: 100%;
+	height: 100%;
+	text-decoration: none;
+	color: #FFFFFF;
+	transition: all 0.4s ease;
+}
+.mt_apropos .thumbs_xy .thumbs:hover .acces_galerie {
+	background: rgba(0, 0, 0, 0.7);
+	color: #FFFFFF;
+}
+.mt_apropos .thumbs .acces_galerie {
+	text-align: center;
+}
+.mt_apropos .thumbs .acces_galerie p.caption {
+	position: relative;
+	display: block;
+	width: 100%;
+	padding: 10px;
+	background: url('../media/uni2.jpg') 100%;
+	font-size: 1.3em;
+	text-align: center;
+	transition: all 0.4s ease;
+}
+.mt_apropos .thumbs .acces_galerie:hover p.caption {
+	padding-top: 20px;
+}
+
+.mt_autresactions {
+	min-height: 620px;
+}
+.npt {
+	color: #34770D;
+	text-shadow: 0px 0px 1px #F2F2F2;
+}
+
+.mt_revue {
+	min-height: 620px;
+}
+.mt_rapports ul.pdf,
+.mt_revue ul.pdf,
+.mt_rapports ul.article,
+.mt_revue ul.article,
+.mt_rapports ul.jpg,
+.mt_revue ul.jpg {
+	display: inline-block;
+	width: 49%;
+}
+
+.mt_rapports ul a
+.mt_revue ul a {
+	margin: 0 10px;
+	text-decoration: none;
+	color: #34770D;
+}
+.mt_rapports ul.pdf a,
+.mt_revue ul.pdf a {
+	color: #34770D;
+}
+.mt_revue ul.article a {
+	color: #0D4A78;
+}
+.mt_revue ul.jpg a {
+	color: #780D41;
+}
+
+.mt_rapports ul a span,
+.mt_revue ul a span {
+	display: inline-block;
+	list-style: none;
+	font-size: 5em;
+}
+.mt_rapports ul.pdf a span,
+.mt_revue ul.pdf a span {
+	color: #34770D;
+}
+.mt_revue ul.article a span {
+	color: #0D4A78;
+}
+.mt_revue ul.jpg a span {
+	color: #780D41;
+}
+
+.mt_rapports ul a li,
+.mt_revue ul a li {
+	display: inline-block;
+	border: 1px solid #34770D;
+	border-radius: 0 5px 5px 0;
+	margin: 0;
+	margin-top: 10px;
+	padding: 5px 10px;
+	vertical-align: top;
+	font-size: 1.1em;
+}
+.mt_rapports ul.pdf a li,
+.mt_revue ul.pdf a li {
+	border: 1px solid #34770D;
+}
+.mt_revue ul.article a li {
+	border: 1px solid #0D4A78;
+}
+.mt_revue ul.jpg a li {
+	border: 1px solid #780D41;
+}
+.mt_rapports ul p.date,
+.mt_revue ul p.date {
+	color: #7A7A7A;
+	font-size: 1em;
+}
+
+/* Multimédia > Audio */
+.mt_audio > .filtre {
+	text-align: center;
+}
+.mt_audio div.audio {
+	display: inline-block;
+	width: 45%;
+	margin: 20px;
+	background: url('../media/uni2.jpg') 100%;
+	border: 1px solid #34770D;
+	text-align: left;
+}
+.mt_audio div.audio .filtre_w {
+	background: rgba(255, 255, 255, 0.4);
+	padding: 10px;
+}
+.mt_audio div.audio h3 {
+	margin-top: 0px;
+	margin-bottom: 20px;
+	color: #FFFFFF;
+	text-shadow: 0px 0px 3px #151515;
+}
+.mt_audio div.audio h4 {
+	margin-bottom: 0px;
+}
+
+/* Multimédia > Photos */
+.mt_galerie {
+	background: rgba(0, 0, 0, 0.3);
+	padding: 0 0 150px 0;
+}
+
+/* Partenaires */
+.mt_partenaires {
+	min-height: 620px;
+	text-align: center;
+	padding: 0 0 30px 0;
+}
+.mt_partenaires div.partner {
+	display: inline-block;
+	margin: 0 0 20px 20px;
+}
+
+/* Contact > Où nous trouver */
+.mt_noustrouver {
+	height: 500px;
+	text-align: center;
+}
+
+.mt_noustrouver .map {
+	display: inline-block;
+}
+
+.mt_noustrouver .contentother {
+	display: inline-block;
+	margin-left: 10px;
+	vertical-align: top;
+}
+
+.mt_noustrouver address {
+	display: block;
+	width: 400px;
+	padding: 10px 30px 30px 30px;
+	background: #F2F2F2;
+	text-align: left;
+	font-size: 1.3em;
+}
+
+.mt_noustrouver address strong {
+	text-transform: uppercase;
+}
+.mt_noustrouver div.reseauxsociaux {
+	display: block;
+	width: 400px;
+	padding: 10px 30px 20px 30px;
+	background: #F2F2F2;
+}
+.mt_noustrouver div.reseauxsociaux img {
+	display: inline-block;
+	width: 64px;
+}
+
+.mt_mentions {
+	min-height: 620px;
+}
+
+#inputcaptcha {
+	width: 50px;
+}
+
+.champ_obligatoire {
+	color:#FF0000;
+}
+
+/** GALERIE PHOTO **/
+#thumbs li a img {
+	vertical-align:middle; border:none;
+}
+#thumbs .mini_img {
+	width: 100px;
+	height: 100px;
+}
+#thumbs {
+	position: relative;
+	list-style:none;
+	margin:30px;
+	padding:0;
+}
+#thumbs li {float:left;}
+#thumbs a {display:block; padding:10px; outline:none;}
+#thumbs a:hover, #thumbs a:focus {background:#fff;}
+#thumbs a.active {background:#000;}
+#viewer {
+	position: relative;
+	top: 50px;
+	width: 700px;
+	height: 465px;
+	margin-left: 30px;
+	margin: auto;
+	text-align: center;
+}
+#viewer img[src*="loader"] {
+	position:absolute;
+	top: 50%;
+	left: 50%;
+	margin: -15px 0 0 -15px;
+}
+#viewer img {
+	height: 100%;
+	box-shadow: 0px 0px 5px #FFFFFF;
+}
