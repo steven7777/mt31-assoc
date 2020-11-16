@@ -9,8 +9,47 @@ left to right direction
 skinparam packageStyle rectangle
 
 
-title <u>Épicerie Graine2Vie MT31 - Cas d'Utilisation</u> \n\n\n
+title <u>Épicerie Graine2Vie MT31 - Cas d'Utilisation</u>
 
+
+' ---------------
+' LÉGENDE
+' ---------------
+
+'On pouvait aussi utiliser _note_ au lieu de _legend_ mais ca se met tout en haut:'
+'(cf note dans http://plantuml.com/fr/class-diagram)'
+'note as N1'
+
+skinparam legendFontSize 11
+legend top left
+
+Diagramme UML de Cas d'Utilisation du 16/11/2020 - Etienne Pallier
+(généré avec PlantUML - http://plantuml.com)
+
+Notes :
+- UC = "Cas d'Utilisation" ("Use Case" en anglais) ; "primary" signifie "acteur principal" du UC
+- Tous ces UCs sont soumis à une première étape d'authentification (login).
+- Ils impliquent aussi systèmatiquement un accès à la BD (lecture ou/et écriture).
+- Le UC1 ne demande pas forcément de développement, car l'Administrateur pourra utiliser des outils existants (tels que PhpMyAdmin) pour gérer la BD (mais si le temps le permet on pourrait envisager une interface d'administration)
+- Le UC3 n'est qu'un sous ensemble de UC2. 
+- Le UC4 nécessite juste un petit formulaire tout simple de mise à jour d'une liste de vendeurs (nom, prénom, email, tel, dates début et fin de service)
+- Inutile de créer un UC pour l'impression d'une liste papier des bénéficiaires autorisés pour une permanence donnée si on équipe l'Accueil et les Vendeurs de tablettes en wifi
+	\t(la caissière équipée d'un PC fixe pourrait avoir accès au même formulaire que celui des vendeurs, le prix total à payer étant déjà calculé, au fur et à mesure) 
+- Les UC6 et UC7 ne nécessitent a priori pas de formulaire, mais juste un bouton qui va déclencher l'impression des rapports
+- Les 2 seuls gros UCs qui ont vraiment besoin de formulaires (et assez complexes) sont les UC2 et UC5 :
+	\t- le Cas d'Utilisation UC2 (Gestion bénéficiaires) ne nécessite qu'1 seul gros formulaire
+	\t- le Cas d'Utilisation UC5 (Achat) est plus complexe et nécessite 2 formulaires :
+		\t\t- F5.1 : liste des Bénéficiaires autorisés pour la permanence, avec pour chacun :
+		\t\t\t- son type de transaction (colis/achat), une case à cocher "présent", une liste de vendeurs pour lui en affecter un, un lien vers l'écran du vendeur choisi
+		\t\t- F5.2 : écran du vendeur => liste des achats d'un Bénéficiare, avec calcul automatique du prix total à payer
+		\t\t- Scénario :
+			\t\t\t1) Un bénéficiaire se présente
+			\t\t\t2) Il est pris en charge par le responsable Accueil qui (à l'aide de F5.1) vérifie son autorisation, coche sa présence, et lui affecte un vendeur
+			\t\t\t3) Le Vendeur choisi donne un colis au Bénéficiaire ou bien fait les achats avec lui et note les articles et quantités (à l'aide du formulaire F5.2)
+			\t\t\t4) La caissière accède à l'écran du vendeur (F5.2) à partir du formulaire F5.1, puis procède à l'encaissement (ou enregistre la dette)
+
+end legend
+'end note'
 
 
 ' ------------------
@@ -21,14 +60,18 @@ title <u>Épicerie Graine2Vie MT31 - Cas d'Utilisation</u> \n\n\n
 
 actor Administrateur as A
 
+actor "Responsable Bénéficiaires" as RB
 'actor "Conseiller Insert. Soc. et Prof." as CISP
 actor "CISP" as CISP
 actor "Commission hebdo (3-4)" as CH
+
 actor "Gestionnaire des Stocks" as GS
-actor "Responsable Bénéficiaires" as RB
+actor "Trésorier ou Président" as TP
+'actor "Président" as P
+'actor "Trésorier" as T
 
 actor "Accueil" as RA
-actor "Vendeurs (3)" as VE
+actor "Vendeurs (3-4)" as VE
 actor "Bénéficiaire \n(env. 300/an) \n(30/permanence) \n(12 max/créneau)" as B
 actor "Caissi-er-ère" as C
 
@@ -36,8 +79,6 @@ actor "Banque Alimentaire" as BA
 'actor "Fédération Entraide Protestante" as FEP
 actor FEP
 
-actor "Président" as P
-actor "Trésorier" as T
 
 
 rectangle "Système Épicerie Graine2Vie MT31" {
@@ -49,6 +90,8 @@ rectangle "Système Épicerie Graine2Vie MT31" {
 
 usecase UC1_ABD as "UC1 - Administration Base de Données"
 
+usecase "UC4 - Mise à jour liste Vendeurs" as UC4_GV
+
 usecase UC2_GB as "UC2 - Gestion Bénéficiaires (consultation, mise à jour)
 	..
 	(composition famille, critères revenus, charges, contrats, suivi activité)
@@ -56,11 +99,12 @@ usecase UC2_GB as "UC2 - Gestion Bénéficiaires (consultation, mise à jour)
 	
 usecase "UC3 - Consultation Bénéficiaires" as UC3_CB
 
-usecase UC4a_ELB as "UC4 --Edition liste bénéficiaires autorisés-- (plus nécessaire ?)
-	(QUAND : jour de permanence - mardi1-2 ou vendredi1-2)
-	..
-	(/type-transaction (achat ou colis) puis /créneau)
-" 
+
+'usecase UC4a_ELB as "UC4 --Edition liste bénéficiaires autorisés-- (plus nécessaire ?)
+'	(QUAND : jour de permanence - mardi1-2 ou vendredi1-2)
+'	..
+'	(/type-transaction (achat ou colis) puis /créneau)
+'" 
 
 'usecase UC4_CLB as "CONSULTATION 'liste bénéficiaires autorisés' et MISE-A-JOUR suivi activité
 '	(QUAND : jour de permanence)
@@ -74,12 +118,12 @@ usecase UC5_AE as "UC5 - ACHAT à l'épicerie (ou récupération colis alimentai
 	(3 créneaux 1h prédéfinis, pendant 3-6 mois)
 	..
 	(présence/absence des pers., 
-	calcul prix à payer, paiement ou dette, 
-	poids produits /catégorie)
+	calcul prix à payer, paiement ou dette) 
+	'poids produits /catégorie)
 " 
 
 usecase UC6_RABA as "UC6 - Edition Rapport Activité pour Banque Alimentaire
-	(QUAND: /trimestre, avant T+1mois)
+	(QUAND: /trimestre et /an, avant T+1mois)
 	..
 	(séparer colis et achats)
 	nb foyers et pers. inscrites, nb visites épicerie,
@@ -103,66 +147,36 @@ usecase UC7_RAH as "UC7 - Edition Rapport Activité pour FEP (habilitation natio
 
 A -- (UC1_ABD)
 
-RB -- (UC2_GB) : données familles \n<< primary >> 
-CISP -- (UC2_GB) : données familles
-CH -- (UC2_GB) : données familles
-GS -- (UC2_GB) : poids denrées distribuées
-  
-P -- (UC3_CB)
-T -- (UC3_CB)
+RB -- (UC2_GB) : \n<< primary >> 
+CISP -- (UC2_GB) 
+CH -- (UC2_GB)
 
-RB -- (UC4a_ELB)
+RB -- (UC4_GV)
+  
+TP -- (UC3_CB)
+
 'RA -- (UC4_CLB)
     
-RA -- (UC5_AE) : autorisation [et mise à jour suivi activité]
+RA -- (UC5_AE) : autorisation, MAJ suivi activité, \naffectation Vendeur à Bénéficiaire
 VE -- (UC5_AE) : aide, conseil, suivi activité
 B -- (UC5_AE) : Achat \n<< primary >>
 C -- (UC5_AE) : encaissement (ou saisie dette)
 '(UC5_AE) -- C : encaissement (ou saisie dette)
 
+
 RB -- (UC6_RABA)
+TP -- (UC6_RABA)
 (UC6_RABA) -- BA
+GS -- (UC6_RABA) : poids denrées distribuées
 
 RB -- (UC7_RAH)
+TP -- (UC7_RAH)
 (UC7_RAH)  -- FEP
 
 
 
 }
 
-
-
-' ---------------
-' LÉGENDE
-' ---------------
-
-'On pouvait aussi utiliser _note_ au lieu de _legend_ mais ca se met tout en haut:'
-'(cf note dans http://plantuml.com/fr/class-diagram)'
-'note as N1'
-
-skinparam legendFontSize 11
-legend top left
-
-Diagramme UML de Cas d'Utilisation du 13/11/2020 - Etienne Pallier
-(généré avec PlantUML - http://plantuml.com)
-
-Notes :
-- Tous ces Cas d'Utilisation sont soumis à une première étape d'authentification (login).
-- Ils impliquent aussi systèmatiquement un accès à la BD (lecture ou/et écriture).
-- Le Cas d'Utilisation UC1 ne demande pas forcément de développement, car l'Administrateur pourra utiliser des outils existants (tels que PhpMyAdmin) pour gérer la BD (mais si le temps le permet on pourrait envisager une interface d'administration)
-- Le Cas d'Utilisation UC3 n'est qu'un sous ensemble de UC2. 
-- Le Cas d'Utilisation UC4 est inutile si on équipe l'Accueil et les Vendeurs de tablettes en wifi.
-  (la/le caissi-er-ère équipée d'un PC fixe pourrait avoir accès au même formulaire que celui des vendeurs, le prix total à payer étant déjà calculé, au fur et à mesure) 
-- Les Cas d'Utilisation UC6 et UC7 ne nécessitent a priori pas de formulaire, mais juste un bouton qui va déclencher l'impression des rapports
-
-- Les 2 seuls gros Cas d'Utilisation qui ont vraiment besoin de formulaires (et assez complexes) sont les UC2 et UC5 :
-	\t- le Cas d'Utilisation UC2 (Gestion bénéficiaires) ne nécessite qu'un seul gros formulaire
-	\t- le Cas d'Utilisation UC5 (Achat) nécessite 2 formulaires :
-		\t\t1) liste des bénéficiaires autorisés pour une permanence donnée (avec possibilité de mise à jour : présence...)
-		\t\t2) liste des achats d'un bénéficiare, avec calcul automatique du prix total à payer (même formulaire utilisé par les vendeurs et le caissier)
-
-end legend
-'end note'
 
 
 @enduml
