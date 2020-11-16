@@ -60,7 +60,11 @@
 							12, rue de Fenouillet<br />
 							31 200 Toulouse<br />
 							Tél. : 06 66 27 96 74<br />
+							<?php $contact='contact@maintendue31.org';?>
+							Mail : <a href="mailto:<?=$contact?>"><?=$contact?></a>
+							<!-- 
 							Mail : <a href="mailto:main-tendue-31@hotmail.fr">main-tendue-31@hotmail.fr</a>
+							 -->
 						</address>
 						<div class="reseauxsociaux">
 							<a href="https://www.facebook.com/main.tendue.3" target="_blank">
