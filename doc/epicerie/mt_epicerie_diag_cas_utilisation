@@ -23,7 +23,7 @@ title <u>Épicerie Graine2Vie MT31 - Cas d'Utilisation</u>
 skinparam legendFontSize 11
 legend top left
 
-Diagramme UML de Cas d'Utilisation du 20/11/2020 - Etienne Pallier (généré avec PlantUML - http://plantuml.com)
+Diagramme UML de Cas d'Utilisation du 27/11/2020 - Etienne Pallier (généré avec PlantUML - http://plantuml.com)
 
 __Notes__ :
 - UC = "Cas d'Utilisation" ("Use Case" en anglais)
@@ -83,10 +83,11 @@ actor "Trésorier \nou Président" as TP
 'actor "Trésorier" as T
 
 ' Michel
+actor "Préparateur (3-4)" as P
+actor "Client (Bénéficiaire) \n(env. 300/an) \n(30/permanence) \n(12 max/créneau)" as B
 actor "Accueil" as RA
 actor "Vendeur (3-4)" as VE
-actor "Client (Bénéficiaire) \n(env. 300/an) \n(30/permanence) \n(12 max/créneau)" as B
-actor "Caissier" as C
+actor "Caissier" as Caissier
 
 actor "Banque \nAlimentaire" as BA
 'actor "Fédération Entraide Protestante" as FEP
@@ -137,7 +138,7 @@ usecase UC5_AE as "UC5 - ACHAT à l'épicerie (ou récupération colis alimentai
 	calcul prix total à payer, paiement ou dette
 " 
 
-usecase UC6_RABA as "UC6 - Création Automatique Rapport Activité pour Banque Alimentaire
+usecase UC6_RABA as "UC6 - Création auto Rapport Activité trim. pour Banque Alimentaire
 	(QUAND: /trimestre et /an, avant T+1mois)
 	..
 	(séparer colis et achats)
@@ -145,7 +146,7 @@ usecase UC6_RABA as "UC6 - Création Automatique Rapport Activité pour Banque A
 	poids total distribué, poids reçu de BA sur période
 "
 
-usecase UC7_RAH as "UC7 - Affichage infos nécessaires pour Rapport Activité FEP (habilitation nationale)
+usecase UC7_RAH as "UC7 - Affichage infos pour Rapports Activité annuels (FEP et BA) (habilitation nationale)
 	(QUAND: /an, avant fin février)
 	..
 	nb foyers et pers. inscrites,
@@ -175,11 +176,11 @@ CH_CISP -- (UC3_CB)
 
 'RA -- (UC4_CLB)
     
+P -- (UC5_AE) : préparation colis (la veille) \net saisie composition \n(sec/lait/frais) 
+B -- (UC5_AE) : Achat
 RA -- (UC5_AE) : autorisation, suivi activité, \naffect. Vendeur-Client
 VE -- (UC5_AE) : aide, conseil, \nenregistrement achats
-B -- (UC5_AE) : Achat
-C -- (UC5_AE) : encaissement \n(ou saisie dette)
-'(UC5_AE) -- C : encaissement (ou saisie dette)
+Caissier -- (UC5_AE) : encaissement \n(+ saisie dette)
 
 
 RB -- (UC6_RABA)
@@ -187,9 +188,11 @@ TP -- (UC6_RABA)
 (UC6_RABA) -- BA : feuille Excel (3 ongl.) CSV \n(selon format BA)
 GS -- (UC6_RABA) : poids denrées \ndistribuées
 
+GS -- (UC7_RAH) : poids denrées \ndistribuées
 RB -- (UC7_RAH)
 TP -- (UC7_RAH)
 (UC7_RAH)  -- FEP : document papier rempli à la main \n(format imposé par FEP) 
+(UC7_RAH)  -- BA : document papier rempli à la main
 
 
 
