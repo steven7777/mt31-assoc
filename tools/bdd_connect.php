@@ -1,13 +1,18 @@
 <?php
-# Connexion	à la BDD
-	$server_name = 'wb59832';
-	$login = 'wb59832';
-	$password = 'bcl72ozb';
 
-	try{
-		$db=new PDO('mysql:host=localhost;dbname=' . $server_name . ';charset=UTF8', $login, $password);
-	}
-	catch(exception $e){
-		die('Erreur : ' . $e->getMessage());
-	}
+# Connexion	à la BDD
+
+#include('/config/app.php');
+include($_SERVER['DOCUMENT_ROOT'] . '/config/app.php');
+
+#echo("$db_name, $login, $password");
+
+try{
+    //$db=new PDO('mysql:host=localhost;dbname=' . $db_name . ';charset=UTF8', $login, $password);
+    $db=new PDO('mysql:host=localhost;dbname=' . $db_name . ';charset=LATIN1', $login, $password);
+}
+catch(exception $e){
+	die('Erreur : ' . $e->getMessage());
+}
+
 ?>

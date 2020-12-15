@@ -25,8 +25,10 @@
 	<!-- EN-TÊTE -->
 	<header>
 		<!-- BARRE DE NAVIGATION -->
-		<?php	require('tools/bdd_connect.php');
-				include('tools/navbar.php');
+		<?php	
+		  require('tools/bdd_connect.php');
+		  #require('tools/bdd_connect_ma_config.php');
+		  include('tools/navbar.php');
 		?>
 	</header>
 
