@@ -57,7 +57,7 @@ Ces personnes sont souvent exclues de toute forme d’aides autres que caritativ
 
 
 Chaque dimanche soir, pendant toute l’année, des repas gratuits sont servis à toute personne en demande. L’accueil est inconditionnel, il n’y a pas d’autre critère que le besoin  Ce sont des repas complets et chauds : soupe, crudité, plat principal, laitage, fruit, café, ou chocolat chaud. 
-Le choix du dimanche a fait l’objet d'une étude afin de répondre au mieux aux besoins de ce public et de ne pas doubler une action déjà mise en place : Main Tendue est la seule association à assurer le repas du dimanche soir toute l’année.
+Le choix du dimanche a fait l’objet d'une étude afin de répondre au mieux aux besoins de ce public et de ne pas doubler une action déjà mise en place. 
 
 Mais au-delà de l’aspect matériel, le but de l’association est de retisser du lien social, voire de le créer. L’accueil inconditionnel, un regard bienveillant et le dialogue qui accompagnent la distribution permettent aux personnes servies de retrouver l’estime d’elles-mêmes. 
 Pour aider les bénévoles dans ces temps de partage, une formation à l'écoute active leur est assurée.
