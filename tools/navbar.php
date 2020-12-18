@@ -28,7 +28,10 @@
 			<ul class="sous-menu">
 				<li><a href="/audio">Audio</a></li>
 				<li><a href="/galeriephoto">Galerie photo</a></li>
+				<!-- (EP 202012) changé 
 				<li><a href="/video/index.php?idVideo=1">Vidéo</a></li>
+				 -->
+				<li><a href="/video/index.php">Vidéo</a></li>
 			</ul>
 		</li>
 		<li><a href="/partenaires">Partenaires</a></li>

@@ -1,6 +1,12 @@
 .DS_Store
+
 config/app.php
+
 database/DB1_create_database_and_users_as_ROOT_USER.sql
 database/DB2_innodb_create_tables_and_data_as_APPLI_USER.sql
+
 /.settings/
+
+/edit/video/_ORIG_PAS_DANS_GIT_NI_SUR_FTP/
+
 

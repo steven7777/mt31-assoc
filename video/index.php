@@ -18,6 +18,59 @@
 	<link rel="stylesheet" type="text/css" href="../css/mobile.css" media="screen and (max-width: 768px)" />
 	<meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0" />
 </head>
+
+<?php
+
+// (EP 202012) Bidouille pour ajouter des videos qui ne sont pas dans la BD
+
+$VIDEO_PATH = 'edit/video/';
+
+// Dernier IdVideo, fixé à 99 pour que ça commence à 100 (à cause du ++)
+$LAST_ID_VIDEO = 99;
+
+$videos_from_array = array(
+    /* Autre video dans le futur...
+    $LAST_ID_VIDEO++ => [
+        'idVideo' => $LAST_ID_VIDEO,
+        'estExterne' => 0,
+        'miniatureVideo' => null,
+        'cheminVideo' => $VIDEO_PATH.'nom_de_la_video',
+        'titreVideo' => "titre de la video",
+     ],
+     */
+    ++$LAST_ID_VIDEO => array(
+        'idVideo' => $LAST_ID_VIDEO,
+        'estExterne' => 0,
+        'miniatureVideo' => null,
+        'cheminVideo' => $VIDEO_PATH.'presentation_association_2020-11-reduced-1280x720',
+        'titreVideo' => "Presentation association Nov. 2020",
+    ),
+);
+//echo "last id video is $LAST_ID_VIDEO";
+
+function displayVideoMiniature($video) {
+    //print_r($video);
+    if ($video['estExterne'] == 1) {
+        ?>
+    	<div style="width: 200px; height: 150px; background-image: url('../<?php echo $video['miniatureVideo']; ?>');" class="thumbs thumb_<?php echo $video['idVideo']; ?>">
+    		<a href="<?php echo $video['cheminVideo']; ?>" target="_blank" class="acces_galerie">
+    			<p class="caption"><?php echo utf8_encode(substr($video['titreVideo'], 0, 15)); ?>...</p>
+    		</a>
+    	</div>
+    	<?php
+    } 
+    else {
+        ?>
+    	<div style="width: 200px; height: 150px; background-image: url('../<?php echo $video['miniatureVideo']; ?>');" class="thumbs thumb_<?php echo $video['idVideo']; ?>">
+    		<a href="index.php?idVideo=<?php echo $video['idVideo']; ?>" class="acces_galerie">
+    			<p class="caption"><?php echo utf8_encode(substr($video['titreVideo'], 0, 15)); ?>...</p>
+    		</a>
+    	</div>
+    	<?php
+    }
+}
+?>
+    				
 <body>
 
 	<!-- EN-TÊTE -->
@@ -45,72 +98,126 @@
 			</div>
 		</div>
 
-		<!-- MULTIMÉDIA | VIDÉO - VUE GÉNÉRALE -->
+		<!-- MULTIMÉDIA | VIDÉO - VUE DÉTAILLÉE DE LA VIDÉO CHOISIE -->
 		<div class="mt_cadre mt_galerie lecture_video mt31_cadres">
+		
 			<div class="filtre">
 				<h2>Vidéo</h2>
-			<?php
-				$videoCourante = $db->prepare('SELECT * FROM mt31_video WHERE idVideo = :idVideo;');
-				$videoCourante->execute(array("idVideo" => $_GET['idVideo']));
-				$toutSurLaVideo = $videoCourante->fetch();
-			?>
-			<?php
-				if ($toutSurLaVideo['estExterne'] == 1) {
-			?>
+    			<?php
+    			//$idVideo = isset($_GET['idVideo']) ? (int) $_GET['idVideo'] : null;
+    			$idVideo = isset($_GET['idVideo']) ? (int) $_GET['idVideo'] : $LAST_ID_VIDEO;
+    			//echo ($idVideo);
+    			/* (EP 202012) 
+    			 * Bidouille pour ajouter une video qui n'est pas dans la BD
+    			 * Elle aura un id >= 100
+    			 */
+    			// 1) From DB
+    			if ($idVideo < 100) {
+    				$videoCourante = $db->prepare('SELECT * FROM mt31_video WHERE idVideo = :idVideo;');
+    				$videoCourante->execute(array("idVideo" => $idVideo));
+    				$video = $videoCourante->fetch();
+    				//print_r($video);
+    				$videoCourante->closeCursor();
+    			}
+    			// 2) From array
+    			else {
+    			    $video = $videos_from_array[$idVideo];
+    			}
+    			?>
+    			<?php
+				if ($video['estExterne'] == 1) {
+                    // on fait rien
+				} 
+				else {
+    			    //$toutSurLaVideo['cheminVideo'] = 'edit/video/_ORIG_PAS_DANS_GIT_NI_SUR_FTP/presentation_association_2020-11-reduced-1280x720';
+    			    //$video['cheminVideo'] = 'edit/video/presentation_association_2020-11-reduced-1280x720';
+    			    //$toutSurLaVideo['cheminVideo'] = 'edit/video/Musique_20__20LIZ_20MC_20COMB_20fait_20chanter_20Toulouse';
+    			    // ok webm:
+    			    //$toutSurLaVideo['cheminVideo'] = 'edit/video/NVEExport_0002';
+    			    //$toutSurLaVideo['cheminVideo'] = 'edit/video/NVEExport';
+    			    //$toutSurLaVideo['cheminVideo'] = 'edit/video/pps_20noel';
+    			    //$video['titreVideo'] = 'TOTO TITI';
+    			    //echo $toutSurLaVideo['cheminVideo'];
+    				//echo $toutSurLaVideo['titreVideo'];
+        			?>
+    				
+    				<h3><?php echo utf8_encode($video['titreVideo']); ?></h3>
+    				
+    				<!--
+    				(EP 202012)
+    				Doc utile sur la balise <video> : 
+    				https://developer.mozilla.org/fr/docs/Apprendre/HTML/Multimedia_and_embedding/Contenu_audio_et_video
+    				Attention : 
+    				- seul le type mime "webm" fonctionne, "flv" ne fonctionne ni avec Firefox ni avec Chrome
+    				- mais c'est très long à produire avec _REDUCE_ORIG_VIDEO.sh (conversion de .mov vers .webm)
+    				- S'il y a plusieurs lignes "source", le navigateur utilise la première ligne qui marche
+    				<video controls="controls">
+    				 -->
+    				<video controls width="500">
 
-			<?php
-				} else {
-			?>
-				<h3><?php echo utf8_encode($toutSurLaVideo['titreVideo']); ?></h3>
-				<video controls="controls">
-					<source src="../<?php echo $toutSurLaVideo['cheminVideo']; ?>.webm" type="video/webm" />
-					<source src="../<?php echo $toutSurLaVideo['cheminVideo']; ?>.flv" type="video/flv" />
-				</video>
-			<?php
+    					<?php
+    					$ext = 'webm';
+    					$video_name = $video['cheminVideo'].'.'.$ext;
+    					$video_mime = "video/$ext";
+    					?>
+    					<source src="../<?=$video_name?>" type="<?=$video_mime?>" />
+    					
+						<?php
+    					$ext = 'flv';
+    					$video_name = $video['cheminVideo'].'.'.$ext;
+    					$video_mime = "video/$ext";
+    					?>
+    					<source src="../<?=$video_name?>" type="<?=$video_mime?>" />
+    					
+    					<!-- 
+    					<source src="../<=$toutSurLaVideo['cheminVideo']?>.webm" type="video/webm" />
+    					<source src="../<=$toutSurLaVideo['cheminVideo']?>.flv" type="video/flv" />
+    					 -->
+    					Désolé, votre navigateur ne supporte pas les vidéos intégrées (embedded).
+    					
+    				</video>
+
+					<?php
 				}
-			$videoCourante->closeCursor();
-			?>
-			</div>
-		</div>
+			    //($idVideo<100) && $videoCourante->closeCursor();
+    			?>
+			</div> <!-- filtre -->
+		
+		</div> <!-- mt_cadre -->
+
 
 		<!-- MULTIMÉDIA | VIDÉO - LISTE -->
 		<div class="mt_cadre mt_photos mt_video mt31_cadres">
 			<div class="filtre">
 				<div class="thumbs_xy">
-					<div style="width: 300px; height: 200px; background-image: url('../<?php echo $toutSurLaVideo['miniatureVideo']; ?>');" class="thumbs active_thumbs thumb_<?php echo $toutSurLaVideo['idVideo']; ?>">
+				
+					<!-- 1) On affiche d'abord une miniature un peu plus grosse pour la video en cours -->
+					<div style="width: 300px; height: 200px; background-image: url('../<?php echo $video['miniatureVideo']; ?>');" class="thumbs active_thumbs thumb_<?php echo $video['idVideo']; ?>">
 						<a href="#" class="acces_galerie">
-							<p class="caption"><?php echo utf8_encode($toutSurLaVideo['titreVideo']); ?></p>
+							<p class="caption"><?php echo utf8_encode($video['titreVideo']); ?></p>
 						</a>
 					</div>
-			<?php
-				$video = $db->prepare('SELECT * FROM mt31_video WHERE idVideo != :idVideo ORDER BY idVideo');
-				$video->execute(array("idVideo" => $_GET['idVideo']));
-				while ($toutesLesVideos = $video->fetch()) {
-					if ($toutesLesVideos['estExterne'] == 1) {
-			?>
-					<div style="width: 200px; height: 150px; background-image: url('../<?php echo $toutesLesVideos['miniatureVideo']; ?>');" class="thumbs thumb_<?php echo $toutesLesVideos['idVideo']; ?>">
-						<a href="<?php echo $toutesLesVideos['cheminVideo']; ?>" target="_blank" class="acces_galerie">
-							<p class="caption"><?php echo utf8_encode(substr($toutesLesVideos['titreVideo'], 0, 15)); ?>...</p>
-						</a>
-					</div>
-			<?php
-					} else {
-			?>
-					<div style="width: 200px; height: 150px; background-image: url('../<?php echo $toutesLesVideos['miniatureVideo']; ?>');" class="thumbs thumb_<?php echo $toutesLesVideos['idVideo']; ?>">
-						<a href="index.php?idVideo=<?php echo $toutesLesVideos['idVideo']; ?>" class="acces_galerie">
-							<p class="caption"><?php echo utf8_encode(substr($toutesLesVideos['titreVideo'], 0, 15)); ?>...</p>
-						</a>
-					</div>
-			<?php
-					}
-				}
-				$video->closeCursor();
-			?>
-				</div>
-			</div>
-		</div>
+					
+					<!-- 2) On affiche ensuite une plus petite miniature pour chaque autre video, par ordre anti-chrono -->
+    				<?php
+    				// (EP 202012) Bidouille : ajout nouvelles vidéos qui ne sont pas dans la BD
+    				// b) From Array
+    				foreach ($videos_from_array as $video) 
+    				    if ($video['idVideo'] != $idVideo) displayVideoMiniature($video);
+    				// a) From DB
+    				$videos = $db->prepare('SELECT * FROM mt31_video WHERE idVideo != :idVideo ORDER BY idVideo');
+    				//$videos->execute(array("idVideo" => $_GET['idVideo']));
+    				$videos->execute(array("idVideo" => $idVideo));
+    				while ($video = $videos->fetch()) displayVideoMiniature($video);
+    				$videos->closeCursor();
+    				?>
+    				
+				</div> <!-- thumbs_xy -->
+			</div> <!-- filtre -->
+		</div> <!-- mt_cadre -->
 
-	</div>
+	</div> <!-- corps -->
+	
 	<script type="text/javascript" src="../js/jquery-2-1-4-min.js" ></script>
 	<script type="text/javascript" src="../js/bootstrap.js" ></script>
 	<script type="text/javascript" src="../js/navbar.js" ></script>
