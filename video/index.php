@@ -21,15 +21,13 @@
 
 <?php
 
+/* Transféré dans /tools/bdd_connect
 // (EP 202012) Bidouille pour ajouter des videos qui ne sont pas dans la BD
-
 $VIDEO_PATH = 'edit/video/';
-
 // Dernier IdVideo, fixé à 99 pour que ça commence à 100 (à cause du ++)
 $LAST_ID_VIDEO = 99;
-
 $videos_from_array = array(
-    /* Autre video dans le futur...
+    /S Autre video dans le futur...
     $LAST_ID_VIDEO++ => [
         'idVideo' => $LAST_ID_VIDEO,
         'estExterne' => 0,
@@ -37,7 +35,7 @@ $videos_from_array = array(
         'cheminVideo' => $VIDEO_PATH.'nom_de_la_video',
         'titreVideo' => "titre de la video",
      ],
-     */
+     S/
     ++$LAST_ID_VIDEO => array(
         'idVideo' => $LAST_ID_VIDEO,
         'estExterne' => 0,
@@ -47,6 +45,7 @@ $videos_from_array = array(
     ),
 );
 //echo "last id video is $LAST_ID_VIDEO";
+*/
 
 function displayVideoMiniature($video) {
     //print_r($video);
@@ -76,8 +75,13 @@ function displayVideoMiniature($video) {
 	<!-- EN-TÊTE -->
 	<header>
 		<!-- BARRE DE NAVIGATION -->
-		<?php	include($_SERVER['DOCUMENT_ROOT'] . '/tools/navbar.php');
-				require('../tools/bdd_connect.php');
+		<?php	
+		include($_SERVER['DOCUMENT_ROOT'] . '/tools/navbar.php');
+		require('../tools/bdd_connect.php');
+		// Variables recupérées de bdd_connect.php :
+		$VIDEO_PATH = $VIDEO_PATH;
+		$LAST_ID_VIDEO = $LAST_ID_VIDEO;
+		$videos_from_array = $videos_from_array;
 		?>
 	</header>
 

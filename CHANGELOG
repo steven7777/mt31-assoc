@@ -1,0 +1,9 @@
+En cours : ajout d'une application web de gestion de l'activité Epicerie
+
+
+18/12/20 : Bugfix de la page accueil, encart Facebook tout en bas, ne s'affichait plus
+
+18/12/20 : Ajouté nouvelle vidéo nov. 2020 de présentation de l'association
+	- à la fois dans l'espace Multimedia/video et sur la page d'accueil
+	- profité pour améliorer et refactoriser la page /video/index.php
+	- refactorisation des éléments généraux (comme les nouvelles vidéos gérées dans un array) dans page /tools/bdd_connect.php

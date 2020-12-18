@@ -27,6 +27,10 @@
 		<!-- BARRE DE NAVIGATION -->
 		<?php	
 		  require('tools/bdd_connect.php');
+		  // Variables recupérées de bdd_connect.php :
+		  $VIDEO_PATH = $VIDEO_PATH;
+		  $LAST_ID_VIDEO = $LAST_ID_VIDEO;
+		  $videos_from_array = $videos_from_array;
 		  #require('tools/bdd_connect_ma_config.php');
 		  include('tools/navbar.php');
 		?>
@@ -42,8 +46,25 @@
 			<div class="filtre">
 				<h2 class="titre_h2">Main Tendue 31</h2>
 
+				<!-- Vidéo de présentation de l'assoc (2020-11) -->
 				<div class="present present-left">
-					<!-- Présentation de l'association -->
+					<div class="div-present div-present-association">
+						<h3>Vidéo de présentation de l'association</h3>
+	    				<video controls width="500">
+        					<?php
+    	    			    $video = $videos_from_array[100];
+        					$ext = 'webm';
+        					$video_name = $video['cheminVideo'].'.'.$ext;
+        					$video_mime = "video/$ext";
+        					?>
+        					<source src="../<?=$video_name?>" type="<?=$video_mime?>" />
+        					Désolé, votre navigateur ne supporte pas les vidéos intégrées (embedded).
+	    				</video>
+					</div>
+				</div>
+
+				<!-- Présentation de l'association -->
+				<div class="present present-left">
 					<div class="div-present div-present-association">
 						<h3>L'Association</h3>
 						<p>L’association Main Tendue 31, constituée le 10 juin 2003 sous le statut de la loi de 1901, est née de la volonté d’un groupe d’individus d’aller au-devant des personnes subissant une situation d’exclusion. L’association s’est donnée pour objet d’apporter une aide morale, matérielle et éducative aux personnes se trouvant en situation de précarité et/ou d’exclusion sociale...</p>
@@ -82,7 +103,17 @@
 					<!-- fil actualité page FB -->
 					<div class="div-present div-present-facebook">
 						<h3>Fil d'actualité de notre page Facebook</h3>
-					    <div class="fb-page" data-href="https://www.facebook.com/Main-Tendue-31-114243778598567" data-tabs="timeline" data-small-header="false" data-adapt-container-width="true" data-hide-cover="false" data-show-facepile="true"><blockquote cite="https://www.facebook.com/Main-Tendue-31-114243778598567" class="fb-xfbml-parse-ignore"><a href="https://www.facebook.com/Main-Tendue-31-114243778598567">Main Tendue 31</a></blockquote></div>
+						<!-- 
+					    <div class="fb-page" data-href="https://www.facebook.com/Main-Tendue-31-114243778598567" data-tabs="timeline" data-small-header="false" data-adapt-container-width="true" data-hide-cover="false" data-show-facepile="true">
+						 -->
+					    <div class="fb-page" data-href="https://www.facebook.com/Main-Tendue-31" data-tabs="timeline" data-small-header="false" data-adapt-container-width="true" data-hide-cover="false" data-show-facepile="true">
+					    	<blockquote cite="https://www.facebook.com/Main-Tendue-31-114243778598567" class="fb-xfbml-parse-ignore">
+					    		<!-- 
+					    		<a href="https://www.facebook.com/Main-Tendue-31-114243778598567">Main Tendue 31</a>
+					    		 -->
+					    		<a href="https://www.facebook.com/Main-Tendue-31">Main Tendue 31</a>
+					    	</blockquote>
+					    </div>
 					</div>
 				</div>
 
