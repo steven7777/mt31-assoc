@@ -1,0 +1,206 @@
+#!/bin/bash
+
+set -e
+
+
+# Variables notables utilisées
+
+SUDO='' # Ajoute "sudo" devant chaque commande si l'utilisateur n'est pas root
+INSTALL_COMMAND='' # Ajoute yum ou apt-get suivant la distribution
+APPLIS="apache2 php php-mysql php-mbstring php-pdo php-pdo-sqlite php-intl php-simplexml mysql-server zip composer npm" #Liste des applis a installer
+#NEWPASS='' #Mot de passe créé aléatoirement a chaque installation, utilisé pour la création du compte base de données
+
+#CONFIG_FILE=../config/app_local
+CONFIG_FILE=../config/app
+CONFIG_FILE_SAMPLE=$CONFIG_FILE.default
+CONFIG_FILE=$CONFIG_FILE.php
+CONFIG_FILE_SAMPLE=$CONFIG_FILE_SAMPLE.php
+
+DB_CREATE_TABLES=../database/create_tables.sql
+DB_CREATE_TABLES_TMP=$DB_CREATE_TABLES.tmp.sql
+DB_CREATE_TABLES=$DB_CREATE_TABLES.sql
+
+ENV_FILE=../config/ENV.sh
+ENV_FILE_SAMPLE=../config/ENV.example.sh
+
+
+# Pour Mac OS, mettre a 1
+MAC=0
+#MAC=1
+Q=""
+[[ $MAC == 1 ]] && Q="''"
+
+
+
+# Depuis le dossier install/ sinon => exit
+echo
+if [ ! -f ./INSTALL ] ; then
+	echo "Vous devez executer ce script depuis le dossier install/"
+	exit 1
+fi
+
+
+
+# droits_root()
+#
+# Ajout de "sudo" devant les commandes dans le cas où le script est lancé sans les droits root
+#
+# Return : $SUDO
+droits_root () {
+    SUDO=""
+    if (( $EUID != 0 )); then
+        SUDO="sudo"
+    fi
+	# EP : je veux pas de sudo !!!
+	SUDO=""
+}
+
+# choose_installer()
+#
+# Choisis quelle commande utiliser pour l'installation des programmes requis par cakephp
+#
+# Return : $INSTALL_COMMAND
+choose_installer () {
+    INSTALL_COMMAND=""
+    if [ -n "$(command -v yum)" ]; then
+        INSTALL_COMMAND="yum install"
+    elif [ -n "$(command -v apt-get)" ]; then
+        INSTALL_COMMAND="apt-get install"
+    else
+        exit
+    fi
+}
+
+# initialize_mysql()
+#
+# Initialise la base de données et crée un utilisateur pour cakephp avec les bons droits
+initialize_mysql () {
+
+	TEST=
+	mysqlargs=""
+	# 1) Si sudo, creation de la BD et du user de la BD (BD prod + test)
+	#[[ $JE_SUIS_ADMIN == 1 ]] && mysqlargs="-u $DB_ADMIN_LOGIN -p $DB_ADMIN_PASS"
+	if [[ $JE_SUIS_ADMIN == 1 ]] ; then
+    	$SUDO mysql $mysqlargs -e "DROP DATABASE IF EXISTS $DATABASE;"
+    	[ $TEST ] && $SUDO mysql $mysqlargs -e "DROP DATABASE IF EXISTS $DATABASE_TEST;"
+    	$SUDO mysql $mysqlargs -e "CREATE DATABASE IF NOT EXISTS $DATABASE;"
+    	[ $TEST ] && $SUDO mysql $mysqlargs -e "CREATE DATABASE IF NOT EXISTS $DATABASE_TEST;"
+    	#$SUDO mysql $mysqlargs epicerie -e "CREATE USER 'mt31-epicerie'@'localhost' IDENTIFIED BY '$NEWPASS';"
+    	#$SUDO mysql $mysqlargs epicerie -e "DROP USER if exists '$USERNAME'@'$HOST'";
+    	$SUDO mysql $mysqlargs epicerie -e "CREATE USER if not exists '$USERNAME'@'$HOST' IDENTIFIED BY '$PASSWORD';"
+    	[ $TEST ] && $SUDO mysql $mysqlargs epicerie -e "CREATE USER if not exists '$USERNAME_TEST'@'$HOST_TEST' IDENTIFIED BY '$PASSWORD_TEST';"
+    	#$SUDO mysql $mysqlargs epicerie -e "GRANT ALL PRIVILEGES ON epicerie.* TO 'mt31-epicerie'@'localhost';"
+    	$SUDO mysql $mysqlargs epicerie -e "GRANT ALL PRIVILEGES ON $DATABASE.* TO '$USERNAME'@'$HOST';"
+    	[ $TEST ] && $SUDO mysql $mysqlargs epicerie -e "GRANT ALL PRIVILEGES ON $DATABASE_TEST.* TO '$USERNAME_TEST'@'$HOST_TEST';"
+	fi
+
+    # 2) Creation des tables (et donnees)
+    mysqlargs="-h $HOST -u $USERNAME -p$PASSWORD"
+    #mysqlargs="-h $HOST -u '$USERNAME' -p'$PASSWORD'"
+    #$SUDO mysql $mysqlargs < ../database/init.sql
+    #mysqlargs="-u $USERNAME -p$PASSWORD"
+    #mysqlargs="-u '$USERNAME' -p'$PASSWORD'"
+    #echo $mysqlargs
+    # On remplace "USE epicerie" dans init.sql
+    cp $DB_CREATE_TABLES $DB_CREATE_TABLES_TMP
+    sed -e "s/USE _database_name_;/USE $DATABASE;/" -i $Q $DB_CREATE_TABLES_TMP
+    #mysql $mysqlargs < ../database/init.sql
+    ##echo "mysql $mysqlargs < $DB_CREATE_TABLES_TMP"
+    mysql $mysqlargs < $DB_CREATE_TABLES_TMP
+    rm $DB_CREATE_TABLES_TMP
+}
+
+# cakephp_configure_database()
+#
+# Initialise la base de données de CakePhp et crée un utilisateur pour cakephp avec les bons droits
+cakephp_configure_database () {
+    ORIG="PASSWORD_PLACEHOLDER"
+    REP="'password' => '$NEWPASS'"
+    sed "s/$ORIG/$REP/g" ../config/app_local.example.php > ../config/app_local.php
+}
+
+
+# Positionne la valeur des variables dans le fichier config
+set_variables_values_in_config_file () {
+	f=$CONFIG_FILE
+	# format MacOS :
+	#sed -e "s/\$HOST/'$HOST'/g" -i '' $f
+	TEST=
+	[ $TEST ] && sed -e "s/\$HOST_TEST/'$HOST_TEST'/g" -i $Q $f
+	sed -e "s/\$HOST/'$HOST'/g" -i $Q $f
+	[ $TEST ] && sed -e "s/\$DATABASE_TEST/'$DATABASE_TEST'/g" -i $Q $f
+	sed -e "s/\$DATABASE/'$DATABASE'/g" -i $Q $f
+	[ $TEST ] && sed -e "s/\$USERNAME_TEST/'$USERNAME_TEST'/g" -i $Q $f
+	sed -e "s/\$USERNAME/'$USERNAME'/g" -i $Q $f
+	[ $TEST ] && sed -e "s/\$PASSWORD_TEST/'$PASSWORD_TEST'/g" -i $Q $f
+	sed -e "s/\$PASSWORD/'$PASSWORD'/g" -i $Q $f
+}
+
+
+
+
+
+
+
+#---------------
+# Main
+#---------------
+
+# 1) Creation d'un fichier config/app.php par defaut SSI n'existe pas deja
+#[ ! -f $CONFIG_FILE ] && cp $CONFIG_FILE_SAMPLE $CONFIG_FILE
+[ ! -f $ENV_FILE ] && cp $ENV_FILE_SAMPLE $ENV_FILE
+
+source $ENV_FILE
+#echo $DATABASE $HOST $USERNAME
+[[ $JE_SUIS_ADMIN == 1 ]] && SUDO=sudo
+if [[ $JE_SUIS_ADMIN == 0 ]] ; then
+	echo "********************************************************************"
+	echo "ATTENTION:"
+	echo "Vous executez ce script SANS etre admnistrateur du pc (cf fichier ../config/ENV.sh)."
+	echo "La BD '$DATABASE' doit donc etre deja creee pour vous,"
+	echo "et elle doit deja appartenir a l'Utilisateur '$USERNAME'."
+	echo "Sinon, inutile de continuer..."
+	echo "********************************************************************"
+fi
+
+
+# Copie locale du fichier de conf
+[ -f $CONFIG_FILE ] && cp $CONFIG_FILE $CONFIG_FILE.ORIG
+cp $CONFIG_FILE_SAMPLE $CONFIG_FILE
+
+set_variables_values_in_config_file
+
+
+
+#droits_root
+
+#if [ $1 != "no-dependencies" ]; then
+if [[ $1 == "with-dependencies" ]]; then
+	echo -e "\033[1;33m=== Installation des prérequis de cakephp ===\033[0m"
+
+	choose_installer
+	$SUDO $INSTALL_COMMAND $APPLIS -y
+fi
+
+
+####echo -e "\033[1;33m=== Installation des fichiers de cakephp ===\033[0m"
+# Lance l'installation des fichiers de cakephp via composer.phar et le fichier de dépendances composer.lock
+####./../composer.phar install -d ./.. -n
+#./../composer.phar update -d ./.. -n
+
+
+echo -e "\033[1;33m=== Configuration de la base de donnees ===\033[0m"
+
+# Création du mot de passe aléatoire
+#NEWPASS=$(cat /dev/urandom | tr -dc 'a-zA-Z0-9$%!.?' | fold -w 32 | head -n 1)
+##NEWPASS=epicerie
+initialize_mysql
+##cakephp_configure_database
+
+
+####echo -e "\033[1;33m=== Creation du compte administrateur du site ===\033[0m"
+####../bin/cake epicerie create_admin
+
+#unset NEWPASS # Suppression de la variable NEWPASS, qui contient le nouveau mot de passe BDD
+
+echo -e "\033[1;33m=== Installation terminee ! ===\033[0m"

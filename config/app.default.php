@@ -7,8 +7,15 @@
 # Attention : le fichier app.php est privé et NE DOIT PAS ETRE VERSIONNÉ
 # Par défaut, il est ignoré dans le fichier /.gitignore
 
+/*
 $db_name = 'DB_NAME';
 $login = 'DB_LOGIN';
 $password = 'DB_PASS';
+*/
+
+$host = $HOST;
+$db_name = $DATABASE;
+$login = $USERNAME;
+$password = $PASSWORD;
 
 ?>

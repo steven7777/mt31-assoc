@@ -102,7 +102,7 @@
 					<strong>Épicerie solidaire</strong><br />
 					Tous les  mardis et vendredis<br />
 					De 14h à 17h00<br />
-					12, rue du Fenouillet<br />
+					12, rue de Fenouillet<br />
 					31200 Toulouse<br />
 				</address>
 				<div class="thumbs_xy">
