@@ -16,7 +16,7 @@ CONFIG_FILE_SAMPLE=$CONFIG_FILE.default
 CONFIG_FILE=$CONFIG_FILE.php
 CONFIG_FILE_SAMPLE=$CONFIG_FILE_SAMPLE.php
 
-DB_CREATE_TABLES=../database/create_tables.sql
+DB_CREATE_TABLES=../database/create_tables
 DB_CREATE_TABLES_TMP=$DB_CREATE_TABLES.tmp.sql
 DB_CREATE_TABLES=$DB_CREATE_TABLES.sql
 
@@ -146,8 +146,7 @@ set_variables_values_in_config_file () {
 # Main
 #---------------
 
-# 1) Creation d'un fichier config/app.php par defaut SSI n'existe pas deja
-#[ ! -f $CONFIG_FILE ] && cp $CONFIG_FILE_SAMPLE $CONFIG_FILE
+# 1) Creation du fichier config/ENV.sh par defaut SSI n'existe pas deja
 [ ! -f $ENV_FILE ] && cp $ENV_FILE_SAMPLE $ENV_FILE
 
 source $ENV_FILE
@@ -164,7 +163,7 @@ if [[ $JE_SUIS_ADMIN == 0 ]] ; then
 fi
 
 
-# Copie locale du fichier de conf
+# Copie locale du fichier de conf de l'application config/app.php
 [ -f $CONFIG_FILE ] && cp $CONFIG_FILE $CONFIG_FILE.ORIG
 cp $CONFIG_FILE_SAMPLE $CONFIG_FILE
 
