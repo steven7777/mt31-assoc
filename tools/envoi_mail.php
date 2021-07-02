@@ -20,7 +20,8 @@ if(isset($_POST['envoi'])){
 		$captcha = $_POST['captcha'];
 
 		if ($captcha == 4) {
-			$destinataire = 'main-tendue-31@hotmail.fr';
+			//$destinataire = 'main-tendue-31@hotmail.fr';
+			$destinataire = 'contact@maintendue31.org';
 			$expediteur = ctype_upper($nom) . ' ' . $prenom . ' <' . $email_exp . ' - ' . $tel . '>';
 
 			$contenu = "Un internaute du site MainTendue31 vient de vous contacter. Voici son message :\n

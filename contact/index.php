@@ -65,6 +65,7 @@
 							$contact='contact AT maintendue31.org';
 							?>
 							Mail : <a href="mailto:<?=$contact?>"><?=$contact?></a>
+							<br/><i>(Remplacer le AT par @)</i>
 							<!-- 
 							Mail : <a href="mailto:main-tendue-31@hotmail.fr">main-tendue-31@hotmail.fr</a>
 							 -->
@@ -92,6 +93,7 @@
 			<p class="contact-p">Vous avez la possibilité de nous joindre via le formulaire suivant :</p>
 
 			<form method="post" action="../tools/envoi_mail.php" class="form-horizontal">
+			
 			  <div class="form-group">
 			    <label for="inputnom" class="col-sm-2 control-label">Nom <span class="champ_obligatoire">*</span></label>
 			    <div class="col-sm-10">
