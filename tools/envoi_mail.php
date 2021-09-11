@@ -7,9 +7,19 @@
 	<body>
 <?php
 # Envoi du formulaire
+//var_dump("coucou");exit;
 if(isset($_POST['envoi'])){
-	# Rubriques non vides
-	if(!empty($_POST['nom']) && !empty($_POST['prenom']) && !empty($_POST['email']) && !empty($_POST['telephone']) && !empty($_POST['objet']) && !empty($_POST['message']) && !empty($_POST['captcha'])){
+	
+    # OK : Rubriques non vides
+	if (
+	   !empty($_POST['nom']) && 
+	   !empty($_POST['prenom']) && 
+	   !empty($_POST['email']) && 
+	   !empty($_POST['telephone']) && 
+	   !empty($_POST['objet']) && 
+	   !empty($_POST['message']) && 
+	   !empty($_POST['captcha'])
+	) {
 
 		$nom = $_POST['nom'];
 		$prenom = $_POST['prenom'];
@@ -19,18 +29,18 @@ if(isset($_POST['envoi'])){
 		$message = str_replace("\'", "'", $_POST['message']);
 		$captcha = $_POST['captcha'];
 
-		if ($captcha == 4) {
+		// CAPTCHA OK
+		if ($captcha == 7) {
+    		//var_dump("captch ok");
 			//$destinataire = 'main-tendue-31@hotmail.fr';
 			$destinataire = 'contact@maintendue31.org';
 			$expediteur = ctype_upper($nom) . ' ' . $prenom . ' <' . $email_exp . ' - ' . $tel . '>';
 
 			$contenu = "Un internaute du site MainTendue31 vient de vous contacter. Voici son message :\n
 			Objet : $objet\n
-	$message";
-
+	               $message
+            ";
 			$entete = "$nom <$email_exp - $tel>";
-
-
 			$send = mail($destinataire, $objet, $contenu, $entete);
 			if($send){
 			?>
@@ -38,22 +48,34 @@ if(isset($_POST['envoi'])){
 				<meta http-equiv="refresh" content="3; URL=../contact" />
 			<?php
 			}
-		} else {
+		} 
+
+		// CAPTCHA KO
+		else {
 			?>
 			<div class="alert alert-danger">
-				<?php echo utf8_decode("Mauvais résultat ! Veuillez entrer la bonne valeur."); ?>
+				<?php 
+        		//var_dump("captch ko");
+				echo utf8_decode("Mauvais résultat ! Veuillez entrer la bonne valeur."); 
+				?>
 				<meta http-equiv="refresh" content="3; URL=../contact" />
 			</div>
 			<?php
-		}
-	} else {
+		} // captcha KO
+	} // tous les champs sont remplis
+	
+    // ERREUR : Il manque au moins 1 champ
+	else { 
 		?>
 		<div class="alert alert-danger">
-			<?php echo utf8_decode("Veuillez remplir les champs obligatoires !"); ?>
+			<?php 
+			//var_dump("champ manquant");
+			echo utf8_decode("Veuillez remplir les champs obligatoires !"); 
+			?>
 			<meta http-equiv="refresh" content="3; URL=../contact" />
 		</div>
 		<?php
-	}
+	} // il manque au moins 1 champ
 }
 ?>
 	</body>
