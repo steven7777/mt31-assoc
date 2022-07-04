@@ -141,7 +141,7 @@
 			  	<!-- 
 			    <label for="inputcaptcha" class="col-sm-2 control-label">1 + 3 = <span class="champ_obligatoire">*</span></label>
 			  	 -->
-			    <label for="inputcaptcha" class="col-sm-2 control-label">5 plus 3 moins 1 = <span class="champ_obligatoire">*</span></label>
+			    <label for="inputcaptcha" class="col-sm-2 control-label">cinq plus 3 moins un = <span class="champ_obligatoire">*</span></label>
 			    <div class="col-sm-10">
 					<input required type="text" id="inputcaptcha" name="captcha" class="form-control" maxlength="2" />
 			    </div>
