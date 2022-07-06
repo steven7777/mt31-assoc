@@ -57,6 +57,8 @@
 					<?php 
 		                // 1) Affiche les new docs directement via le dossier pdf/
                         $docs_hors_bd = array(
+                            'RA_2021' => '2021',
+                            'RA_2020' => '2020',
                             'RA_2019' => '2019',
                             'RA_2018' => '2018',
                             'Rapport_d_activites_2017' => '2017',
