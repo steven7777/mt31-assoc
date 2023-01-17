@@ -343,7 +343,7 @@ a, a:focus {
 }
 
 .home_activite .nb_service:after {
-	content: '2';
+	content: '1';
 	margin-left: 20px;
 	font-family: 'OpenSans';
 }

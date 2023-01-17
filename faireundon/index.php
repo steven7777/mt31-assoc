@@ -60,15 +60,19 @@
 						$voirFUD['dateP'] = '';
 	                    //$voirFUD['titrePDF'] = 'Bon de soutien';
 						
-						$dons = "Imprimez le bon de soutien en PDF ci-dessous et  renvoyez le  nous complété à l'adresse indiquée.";
+						$dons = "Imprimez le bon de soutien en PDF ci-dessous et  renvoyez-le  nous complété à l'adresse indiquée.";
 
-						$dons2 = "La législation française prévoit pour chaque don à un organisme d'aide aux personnes en difficulté, une défiscalisation du don à hauteur de 75% pour les particuliers (<a href=\"http://www.legifrance.gouv.fr/affichCodeArticle.do?idArticle=LEGIARTI000018619914&cidTexte=LEGITEXT000006069577\" target=\"_blank\">Info Légifrance particuliers - ligne 1.ter</a>) et à hauteur de 60 % pour les sociétés (<a href=\"http://www.legifrance.gouv.fr/affichCodeArticle.do?cidTexte=LEGITEXT000006069577&idArticle=LEGIARTI000006309076&dateTexte=&categorieLien=cid\" target=\"_blank\">Info Légifrance sociétés</a>).     Ainsi un don de 100€ ne vous coûtera en réalité que 25€.
+						$dons2 = "La législation française prévoit pour chaque don à un organisme d'aide aux personnes en difficulté, 
+							une défiscalisation du don à hauteur de 60% pour les particuliers (<a href=\"http://www.legifrance.gouv.fr/affichCodeArticle.do?idArticle=LEGIARTI000018619914&cidTexte=LEGITEXT000006069577\" target=\"_blank\">Info Légifrance particuliers - ligne 1.ter</a>) 
+							et à hauteur de 60% pour les sociétés (<a href=\"http://www.legifrance.gouv.fr/affichCodeArticle.do?cidTexte=LEGITEXT000006069577&idArticle=LEGIARTI000006309076&dateTexte=&categorieLien=cid\" target=\"_blank\">Info Légifrance sociétés</a>).
+							Ainsi un don de 100€ ne vous coûtera en réalité que 25€.
 				
-				-- Bénéficiez d'une défiscalisation de vos dons à Main Tendue 31 --"; ?>
+							-- Bénéficiez d'une défiscalisation de vos dons à Main Tendue 31 --
+						"; ?>
 
 						<p><?php echo str_replace(array("\r\n","\n"),"<br/>", $dons); ?></p>
 
-						<p class="info">Certains documents présents sur ce site, sont en format PDF. Afin de pouvoir les exploiter veuillez télécharger gratuitement un lecteur PDF en cliquant <a href="https://get.adobe.com/reader/?loc=fr" target="_blank">ici</a>.</p>
+						<p class="info">Certains documents présents sur ce site sont en format PDF. Afin de pouvoir les exploiter, veuillez télécharger gratuitement un lecteur PDF en cliquant <a href="https://get.adobe.com/reader/?loc=fr" target="_blank">ici</a>.</p>
 
 					<ul class="file pdf">
 						<a href="../pdf/<?php echo $voirFUD['nomfichier']; ?>" target="_blank">

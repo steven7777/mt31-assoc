@@ -120,16 +120,20 @@
 			</div>
 		</div>
 
-		<!-- BÉNÉVOLAT -->
+		<!-- BÉNÉVOLAT - A CE JOUR-->
 		<div class="home_cadre home_activite">
 			<div class="filtre">
+				
 				<h2 class="titre_h2">À ce jour</h2>
+				
 				<div class="stats">
+
 					<div class="div-stats benevoles">
 						<span class="glyphicon glyphicon-user nb_benevole"></span>
 						<h4>Bénévoles</h4>
 						<p>.. Au service des plus démunis.</p>
 					</div>
+					
 					<div class="div-stats actions">
 						<span class="glyphicon glyphicon-fire nb_action"></span>
 						<h4>Activités principales</h4>
@@ -141,16 +145,19 @@
 							<li>Noël Pour Tous</li>
 						</ul>
 					</div>
+					
 					<div class="div-stats services">
 						<span class="glyphicon glyphicon-globe nb_service"></span>
-						<h4>Jeunes services civiques</h4>
+						<h4>Service civique</h4>
 						<p></p>
 					</div>
+					
 					<div class="div-stats salarie">
 						<span class="glyphicon glyphicon-eur nb_salarie"></span>
 						<h4>Salariés</h4>
 						<p></p>
 					</div>
+
 				</div>
 			</div>
 		</div>

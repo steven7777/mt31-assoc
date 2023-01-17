@@ -100,8 +100,10 @@
 				</div>
 				<address>
 					<strong>Épicerie solidaire</strong><br />
-					Tous les  mardis et vendredis<br />
-					De 14h à 17h00<br />
+					<br>
+					Tous les  mardis et vendredis de 14h à 17h00<br />
+					Et le samedi de 10h à 12h30 pour les étudiants<br>
+					<br>
 					12, rue de Fenouillet<br />
 					31200 Toulouse<br />
 				</address>

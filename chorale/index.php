@@ -41,23 +41,29 @@
 		<div class="mt_cadre mt_association mt31_cadres">
 			<div class="filtre">
 				<article>
-					<p><?php $textchorale="Le Chœur KoKeLiKo est destiné aux personnes de la rue ou ayant fait l'expérience de la rue, aux bénéficiaires d'épiceries solidaires, mais aussi aux bénévoles d'associations et toutes personnes intéressées par le projet.
-Au-delà du plaisir de chanter ensemble, cette chorale permet d’entrer en relation avec l'autre par la musique, d'intégrer un groupe et retrouver confiance en soi au-travers du chant. La chorale souhaite est présente lors d'obsèques de personnes de la rue, avec l'Association \"Goutte de Vies\". 
-Le Chœur KoKeLiKo permet également aux personnes en situation de précarité et/ou d’exclusion de réapprendre les gestes et les comportements nécessaires à leur réinsertion. (Présence aux répétitions, respect des horaires, respect des autres, respect des règles…)
+					<p>
+						<?php 
+						$textchorale=
+							"Le Chœur KoKeLiKo est destiné aux personnes de la rue ou ayant fait l'expérience de la rue, aux bénéficiaires d'épiceries solidaires, mais aussi aux bénévoles d'associations et toutes personnes intéressées par le projet.
+							Au-delà du plaisir de chanter ensemble, cette chorale permet d’entrer en relation avec l'autre par la musique, d'intégrer un groupe et retrouver confiance en soi au-travers du chant. La chorale souhaite est présente lors d'obsèques de personnes de la rue, avec l'Association \"Goutte de Vies\". 
+							Le Chœur KoKeLiKo permet également aux personnes en situation de précarité et/ou d’exclusion de réapprendre les gestes et les comportements nécessaires à leur réinsertion. (Présence aux répétitions, respect des horaires, respect des autres, respect des règles…)
 
-Le Chœur KoKeLiKo est ouvert aux projets qui se présentent à lui : animations, fête de la musique, moment de chant partagé lors des distributions de repas, ou dans des centres d'hébergement.
-Le Chœur KoKeLiKo se réunit tous les 15 jours, le samedi après-midi, de 14 à 16h au 56 rue de Périole 31500 Toulouse. 
-<!-- à l'Ostalada, 22 place Arnaud Bernard à Toulouse, Accueil de jour du Secours Catholique, partenaire de notre chorale. -->
-Répertoire de la variété française (Brassens, Aznavour, Piaf, Renaud, Duteil, Nougaro...) et du Gospel, tout ceci accompagné d'un accordéon et d'un piano.
-Au plaisir de chanter avec vous !
+							Le Chœur KoKeLiKo est ouvert aux projets qui se présentent à lui : animations, fête de la musique, moment de chant partagé lors des distributions de repas, ou dans des centres d'hébergement.
+							Le Chœur KoKeLiKo se réunit tous les 15 jours, le samedi après-midi, de 14 à 16h au 56 rue de Périole 31500 Toulouse. 
+							<!-- à l'Ostalada, 22 place Arnaud Bernard à Toulouse, Accueil de jour du Secours Catholique, partenaire de notre chorale. -->
+							Répertoire de la variété française (Brassens, Aznavour, Piaf, Renaud, Duteil, Nougaro...) et du Gospel, tout ceci accompagné d'un accordéon et d'un piano.
+							Au plaisir de chanter avec vous !
 
-<a href='https://www.youtube.com/watch?v=ziX2Da-YjQY'>Cliquer ici pour voir la vidéo de présentation</a>
+							<a href='https://www.youtube.com/watch?v=ziX2Da-YjQY'>Cliquer ici pour voir la vidéo de présentation</a>
 
-<a href='https://www.grosfichiers.com/7KAE6EAdWd4IK'>Cliquer ici pour écouter un reportage radio</a>
+							<a href='https://www.grosfichiers.com/7KAE6EAdWd4IK'>Cliquer ici pour écouter un reportage radio</a>
 
-Contact : Florence 07 83 52 15 31 ou choeurkokeliko@gmail.com";
+							"
+							."Contact : Joseph - 07 69 76 22 83 - kokeliko@maintendue31.org";
+							#."Contact : Florence 07 83 52 15 31 ou choeurkokeliko@gmail.com";
 				echo str_replace(array("\r\n","\n"),"<br/>", $textchorale);
-		?></p>
+						?>
+		</p>
 				</article>
 			</div>
 		</div>
