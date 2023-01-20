@@ -49,7 +49,7 @@
 					Le Chœur KoKeLiKo permet aux personnes en situation de précarité et/ou d’exclusion de réapprendre les gestes et les comportements nécessaires à leur réinsertion. (Présence aux répétitions, respect des horaires, respect des autres, respect des règles...)
 					
 					Il est ouvert aux projets qui se présentent à lui : animations, fête de la musique, moment de chant partagé lors des distributions de repas, ou dans des centres d'hébergement.
-					Lee répétitions ont lieu tous les 15 jours, le samedi après-midi.
+					Les répétitions ont lieu tous les 15 jours, le samedi après-midi.
 					
 					Répertoire de la variété française (Brassens, Aznavour, Piaf, Renaud, Duteil, Nougaro...) et du Gospel, tout ceci accompagné d'un accordéon et d'un piano.
 					Au plaisir de chanter avec vous !
