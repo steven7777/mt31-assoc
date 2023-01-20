@@ -1,8 +1,7 @@
-VERSION : 2021_07_02
+VERSION : 2023_01_20
 
 
-En cours : ajout d'une application web de gestion de l'activité Epicerie
-
+20/1/23 (EP) : update page Kokeliko et chiffres (salariés, services civiques...)
 
 2/7/21 (EP) : Bugfix formulaire contact => envoi sur nouvelle adresse contact@maintendue31.org
 

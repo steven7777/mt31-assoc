@@ -20,4 +20,4 @@ nl2();
 echo "MISE A JOUR TERMINÉE";
 nl2();
 
-phpinfo();
+#phpinfo();
