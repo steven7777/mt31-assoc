@@ -63,7 +63,7 @@
 						$dons = "Imprimez le bon de soutien en PDF ci-dessous et  renvoyez-le  nous complété à l'adresse indiquée.";
 
 						$dons2 = "La législation française prévoit pour chaque don à un organisme d'aide aux personnes en difficulté, 
-							une défiscalisation du don à hauteur de 60% pour les particuliers (<a href=\"http://www.legifrance.gouv.fr/affichCodeArticle.do?idArticle=LEGIARTI000018619914&cidTexte=LEGITEXT000006069577\" target=\"_blank\">Info Légifrance particuliers - ligne 1.ter</a>) 
+							une défiscalisation du don à hauteur de 75% pour les particuliers (<a href=\"http://www.legifrance.gouv.fr/affichCodeArticle.do?idArticle=LEGIARTI000018619914&cidTexte=LEGITEXT000006069577\" target=\"_blank\">Info Légifrance particuliers - ligne 1.ter</a>) 
 							et à hauteur de 60% pour les sociétés (<a href=\"http://www.legifrance.gouv.fr/affichCodeArticle.do?cidTexte=LEGITEXT000006069577&idArticle=LEGIARTI000006309076&dateTexte=&categorieLien=cid\" target=\"_blank\">Info Légifrance sociétés</a>).
 							Ainsi un don de 100€ ne vous coûtera en réalité que 25€.
 				
