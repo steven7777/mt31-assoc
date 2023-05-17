@@ -1,5 +1,9 @@
 <?php
 
+# Remplacement fonction utf8_encode deprecated dans php 8
+function my_utf8_encode(string $s) { return mb_convert_encoding($s, 'UTF-8', 'ISO-8859-1'); }
+
+
 # Connexion	à la BDD
 
 #include('/config/app.php');

@@ -53,7 +53,7 @@ function displayVideoMiniature($video) {
         ?>
     	<div style="width: 200px; height: 150px; background-image: url('../<?php echo $video['miniatureVideo']; ?>');" class="thumbs thumb_<?php echo $video['idVideo']; ?>">
     		<a href="<?php echo $video['cheminVideo']; ?>" target="_blank" class="acces_galerie">
-    			<p class="caption"><?php echo utf8_encode(substr($video['titreVideo'], 0, 15)); ?>...</p>
+    			<p class="caption"><?php echo my_utf8_encode(substr($video['titreVideo'], 0, 15)); ?>...</p>
     		</a>
     	</div>
     	<?php
@@ -62,7 +62,7 @@ function displayVideoMiniature($video) {
         ?>
     	<div style="width: 200px; height: 150px; background-image: url('../<?php echo $video['miniatureVideo']; ?>');" class="thumbs thumb_<?php echo $video['idVideo']; ?>">
     		<a href="index.php?idVideo=<?php echo $video['idVideo']; ?>" class="acces_galerie">
-    			<p class="caption"><?php echo utf8_encode(substr($video['titreVideo'], 0, 15)); ?>...</p>
+    			<p class="caption"><?php echo my_utf8_encode(substr($video['titreVideo'], 0, 15)); ?>...</p>
     		</a>
     	</div>
     	<?php
@@ -145,7 +145,7 @@ function displayVideoMiniature($video) {
     				//echo $toutSurLaVideo['titreVideo'];
         			?>
     				
-    				<h3><?php echo utf8_encode($video['titreVideo']); ?></h3>
+    				<h3><?php echo my_utf8_encode($video['titreVideo']); ?></h3>
     				
     				<!--
     				(EP 202012)
@@ -198,7 +198,7 @@ function displayVideoMiniature($video) {
 					<!-- 1) On affiche d'abord une miniature un peu plus grosse pour la video en cours -->
 					<div style="width: 300px; height: 200px; background-image: url('../<?php echo $video['miniatureVideo']; ?>');" class="thumbs active_thumbs thumb_<?php echo $video['idVideo']; ?>">
 						<a href="#" class="acces_galerie">
-							<p class="caption"><?php echo utf8_encode($video['titreVideo']); ?></p>
+							<p class="caption"><?php echo my_utf8_encode($video['titreVideo']); ?></p>
 						</a>
 					</div>
 					

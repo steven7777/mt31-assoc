@@ -74,8 +74,8 @@
 				?>
     				<div class="audio">
     					<div class="filtre_w">
-    						<h4><?php echo utf8_encode($audiofile['auteurAudio']); ?></h4>
-    						<h3><?php echo utf8_encode(ucfirst($audiofile['typeAudio'])); ?> - <?php echo utf8_encode($audiofile['titreAudio']); ?></h3>
+    						<h4><?php echo my_utf8_encode($audiofile['auteurAudio']); ?></h4>
+    						<h3><?php echo my_utf8_encode(ucfirst($audiofile['typeAudio'])); ?> - <?php echo my_utf8_encode($audiofile['titreAudio']); ?></h3>
     						<audio controls="controls">
     							<source src="../media/audio/<?php echo $audiofile['nomFichierAudio']; ?>" type="audio/mp3"></source>
     						</audio>
@@ -91,8 +91,8 @@
 				?>
     				<div class="audio">
     					<div class="filtre_w">
-    						<h4><?php echo utf8_encode($allAudio['auteurAudio']); ?></h4>
-    						<h3><?php echo utf8_encode(ucfirst($allAudio['typeAudio'])); ?> - <?php echo utf8_encode($allAudio['titreAudio']); ?></h3>
+    						<h4><?php echo my_utf8_encode($allAudio['auteurAudio']); ?></h4>
+    						<h3><?php echo my_utf8_encode(ucfirst($allAudio['typeAudio'])); ?> - <?php echo my_utf8_encode($allAudio['titreAudio']); ?></h3>
     						<audio controls="controls">
     							<source src="../media/audio/<?php echo $allAudio['nomFichierAudio']; ?>" type="audio/mp3"></source>
     						</audio>

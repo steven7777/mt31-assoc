@@ -52,14 +52,14 @@
 					31 200 Toulouse<br />
 					Responsable de la rédaction : M.Christian Soulié</p>
 				<h3>Hébergeur</h3>
-				<p>L'hébergement du site est assuré par :<br />
-					NFrance Conseil - 4 rue J.F. Kennedy - 31000 Toulouse</p>
+				<p>L'hébergement du site est assuré depuis mi-2022 par OVH<br />
 				<h3>Traitement des données</h3>
 				<p>En communiquant vos données, vous acceptez implicitement qu'elles puissent être utilisées, traitées et transférées au sein de l'association "Main Tendue 31".
 					Elles ne seront communiquées à aucun tier externe à l'association.<br /> 
 					En application de l’article 40 de la loi du 6 janvier 1978, vous bénéficiez d’un droit d’accès et de rectification aux informations qui vous concernent. Si vous souhaitez exercer ce droit et obtenir la communication de ces informations, veuillez contacter notre association.</p>
 				<h3>WebMasters</h3>
-				<p>Conception et Réalisation Graphique du site Main tendue 31 par <a href="mailto:davidboot31@gmail.com">David BOOT</a> et <a href="mailto:kouassiweb@gmail.com">KouassiWeb</a></p>
+				<p>Site repris depuis 2021 (et passé en php 8) par <a href="mailto:etiennoury ATT gmail POINTT com">Etienne Pallier</a></p>
+				<p>Origine (php 5) : conception et réalisation Graphique du site Main tendue 31 par <a href="mailto:davidboot31 AT gmail.com">David BOOT</a> et <a href="mailto:kouassiweb AT gmail.com">KouassiWeb</a></p>
 			</div>
 		</div>
 

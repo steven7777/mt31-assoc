@@ -79,7 +79,7 @@
 							<span class="glyphicon glyphicon-save-file download"></span>
 							<li>
 								<p class="date"><?php echo $voirFUD['dateP']; ?></p>
-								<p class="titre"><?php echo utf8_encode($voirFUD['titrePDF']); ?></p>
+								<p class="titre"><?php echo my_utf8_encode($voirFUD['titrePDF']); ?></p>
 							</li>
 						</a>
 					</ul>

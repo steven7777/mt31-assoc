@@ -87,7 +87,7 @@ En résumé, nous voulons faire de cette journée une \"journée unique\" pour c
 				?>
 					<div style="background-image: url('../<?php echo $lesDeuxPremiersAlbums['photoCover']; ?>');" class="thumbs thumbs_r thumb_<?php echo $lesDeuxPremiersAlbums['idAlbum']; ?>">
 						<a href="../galeriephoto/visionneuse-galerie.php?idAlbum=<?php echo $lesDeuxPremiersAlbums['idAlbum']; ?>" class="acces_galerie">
-							<p class="caption"><?php echo utf8_encode($lesDeuxPremiersAlbums['titreAlbum']); ?></p>
+							<p class="caption"><?php echo my_utf8_encode($lesDeuxPremiersAlbums['titreAlbum']); ?></p>
 						</a>
 					</div>
 				<?php

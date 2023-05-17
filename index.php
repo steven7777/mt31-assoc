@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="fr">
+
 <head>
 	<meta charset="utf-8" />
 	<meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
@@ -21,7 +22,9 @@
 	<link rel="stylesheet" type="text/css" href="css/max1032px.css" media="screen and (min-width: 768px) and (max-width: 1032px)" />
 	<link rel="stylesheet" type="text/css" href="css/mobile.css" media="screen and (max-width: 768px)" />
 </head>
+
 <body>
+
 	<!-- EN-TÊTE -->
 	<header>
 		<!-- BARRE DE NAVIGATION -->
@@ -167,20 +170,42 @@
 			<div class="filtre">
 				<h2 class="titre_h2">Galerie photo</h2>
 				<div class="thumbs_xy thumbs_hori">
-				<?php
+					<?php
 					$deuxPremiersAlbums = $db->prepare('SELECT * FROM mt31_albums LIMIT 2');
 					$deuxPremiersAlbums->execute();
 					while ($lesDeuxPremiersAlbums = $deuxPremiersAlbums->fetch()) {
-				?>
-					<div style="background-image: url(<?php echo $lesDeuxPremiersAlbums['photoCover']; ?>);" class="thumbs thumb_<?php echo $lesDeuxPremiersAlbums['idAlbum']; ?>">
-						<a href="galeriephoto/visionneuse-galerie.php?idAlbum=<?php echo $lesDeuxPremiersAlbums['idAlbum']; ?>" class="acces_galerie">
-							<p class="caption"><?php echo utf8_encode($lesDeuxPremiersAlbums['titreAlbum']); ?></p>
-						</a>
-					</div>
-				<?php
+						#print_r($lesDeuxPremiersAlbums);
+						#var_export($lesDeuxPremiersAlbums);
+						#var_dump($lesDeuxPremiersAlbums);
+						#debug_zval_dump($lesDeuxPremiersAlbums);
+						/* Array :
+							
+							#foreach ($lesDeuxPremiersAlbums as $key => $value) echo $key.': '.$value.'<br>';
+							
+							idAlbum: 1
+							0: 1
+
+							titreAlbum: Distribution des repas
+							1: Distribution des repas
+							
+							photoCover: edit/album1/DSC-155.jpg
+							2: edit/album1/DSC-155.jpg
+							
+							nbPhotos: 40
+							3: 40
+							
+							dateAlbum:
+							4:
+						*/
+						?>
+						<div style="background-image: url(<?php echo $lesDeuxPremiersAlbums['photoCover']; ?>);" class="thumbs thumb_<?php echo $lesDeuxPremiersAlbums['idAlbum']; ?>">
+							<a href="galeriephoto/visionneuse-galerie.php?idAlbum=<?php echo $lesDeuxPremiersAlbums['idAlbum']; ?>" class="acces_galerie">
+								<p class="caption"><?= my_utf8_encode($lesDeuxPremiersAlbums['titreAlbum']) ?></p>
+							</a>
+						</div><?php
 					}
 					$deuxPremiersAlbums->closeCursor();
-				?>
+					?>
 				</div>
 				<div class="thumbs_xy thumbs_vert">
 				<?php
@@ -190,7 +215,7 @@
 				?>
 					<div style="background-image: url(<?php echo $lesDeuxDerniersAlbums['photoCover']; ?>);" class="thumbs thumb_<?php echo $lesDeuxDerniersAlbums['idAlbum']; ?>">
 						<a href="galeriephoto/visionneuse-galerie.php?idAlbum=<?php echo $lesDeuxDerniersAlbums['idAlbum']; ?>" class="acces_galerie">
-							<p class="caption"><?php echo utf8_encode($lesDeuxDerniersAlbums['titreAlbum']); ?></p>
+							<p class="caption"><?php echo my_utf8_encode($lesDeuxDerniersAlbums['titreAlbum']); ?></p>
 						</a>
 					</div>
 				<?php

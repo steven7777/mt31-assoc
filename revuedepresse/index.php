@@ -88,7 +88,7 @@
 							<span class="glyphicon glyphicon-save-file download"></span>
 							<li>
 								<p class="date"><?php echo $allRP['dateP']; ?></p>
-								<p class="titre"><?php echo utf8_encode($allRP['titrePDF']); ?></p>
+								<p class="titre"><?php echo my_utf8_encode($allRP['titrePDF']); ?></p>
 							</li>
 						</a>
 					</ul>
@@ -100,7 +100,7 @@
 							<span class="glyphicon glyphicon-picture download"></span>
 							<li>
 								<p class="date"><?php echo $allRP['dateP']; ?></p>
-								<p class="titre"><?php echo utf8_encode($allRP['titrePDF']); ?></p>
+								<p class="titre"><?php echo my_utf8_encode($allRP['titrePDF']); ?></p>
 							</li>
 						</a>
 					</ul>
@@ -112,7 +112,7 @@
 							<span class="glyphicon glyphicon-link download"></span>
 							<li>
 								<p class="date"><?php echo $allRP['dateP']; ?></p>
-								<p class="titre"><?php echo utf8_encode($allRP['titrePDF']); ?></p>
+								<p class="titre"><?php echo my_utf8_encode($allRP['titrePDF']); ?></p>
 							</li>
 						</a>
 					</ul>

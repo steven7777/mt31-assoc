@@ -87,7 +87,7 @@
         							<span class="glyphicon glyphicon-save-file download"></span>
         							<li>
         								<p class="date"><?php echo $allNR['dateP']; ?></p>
-        								<p class="titre"><?php echo utf8_encode($allNR['titrePDF']); ?></p>
+        								<p class="titre"><?php echo my_utf8_encode($allNR['titrePDF']); ?></p>
         							</li>
         						</a>
         					</ul>

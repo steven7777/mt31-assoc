@@ -1,5 +1,6 @@
-VERSION : 2023_01_20
+VERSION : 2023_05_23
 
+17/05/2023 (EP) : updated pour PHP 8 (remplacement fonction utf8_encode notamment)
 
 20/1/23 (EP) : update page Kokeliko et chiffres (salariés, services civiques...)
 

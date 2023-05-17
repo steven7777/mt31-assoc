@@ -51,7 +51,7 @@
 					$recupererTitreAlbum = $db->prepare('SELECT * FROM mt31_albums WHERE idAlbum = :idAlbum');
 					$recupererTitreAlbum->execute(array("idAlbum" => $_GET['idAlbum']));
 					$titreAlbum = $recupererTitreAlbum->fetch();
-					echo "<h2> Photos de l'événement \"" . utf8_encode($titreAlbum['titreAlbum']) . "\"</h2>";
+					echo "<h2> Photos de l'événement \"" . my_utf8_encode($titreAlbum['titreAlbum']) . "\"</h2>";
 				?>
 			</div>
 			<div class="vue">

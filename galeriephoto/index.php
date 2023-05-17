@@ -58,7 +58,7 @@
 			?>
 					<div style="background-image: url('../<?php echo $tousLesAlbums['photoCover']; ?>');" class="thumbs thumb_<?php echo $tousLesAlbums['idAlbum']; ?>">
 						<a href="visionneuse-galerie.php?idAlbum=<?php echo $tousLesAlbums['idAlbum']; ?>" class="acces_galerie">
-							<p class="caption"><?php echo utf8_encode($tousLesAlbums['titreAlbum']); ?></p>
+							<p class="caption"><?php echo my_utf8_encode($tousLesAlbums['titreAlbum']); ?></p>
 						</a>
 					</div>
 			<?php
